@@ -1,5 +1,8 @@
-__pycache__/
-*.pyc
-build/
-dist/
-*.spec
+node_modules/
+.next/
+out/
+.data/
+.env
+.env.local
+*.tsbuildinfo
+next-env.d.ts
