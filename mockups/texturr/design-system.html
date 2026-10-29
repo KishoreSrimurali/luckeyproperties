@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Texturr — UI system</title>
+  <link rel="stylesheet" href="assets/texturr.css">
+  <link rel="stylesheet" href="assets/pages.css">
+  <script src="assets/materials.js" defer></script>
+</head>
+<body data-page="" data-samples="2">
+  <div data-include="header"></div>
+  <main id="main" class="sys">
+    <div class="wrap">
+      <p class="eyebrow">Texturr · UI system v1</p>
+      <h1 class="h1" style="margin-top:16px">Locked <em>palette</em>, <br>restrained type.</h1>
+
+      <h2>Palette and roles</h2>
+      <div class="palette"><div class="pal"><div class="pal-chip" style="background:var(--bone);box-shadow:inset 0 -1px 0 var(--mist)"></div><div class="pal-info"><b>Bone</b><code>#F5F2EC</code><span>Canvas. Default page background.</span><span class="pal-cr">Ink on bone 15.8:1</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--ink);"></div><div class="pal-info"><b>Ink</b><code>#191917</code><span>Primary text, primary buttons, dark bands.</span><span class="pal-cr">Bone on ink 15.8:1</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--white);box-shadow:inset 0 -1px 0 var(--mist)"></div><div class="pal-info"><b>White</b><code>#FFFFFF</code><span>Raised surfaces: inputs, cards, summary.</span><span class="pal-cr">Ink on white 17.6:1</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--carbon);"></div><div class="pal-info"><b>Carbon</b><code>#171715</code><span>Footer and deepest shadow (as alpha).</span><span class="pal-cr">Bone on carbon 16.1:1</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--graphite);"></div><div class="pal-info"><b>Graphite</b><code>#393834</code><span>Secondary text on light. Hairlines on dark.</span><span class="pal-cr">On bone 10.5:1</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--stone);"></div><div class="pal-info"><b>Stone</b><code>#77736C</code><span>Placeholders on white, large meta only.</span><span class="pal-cr">On white 4.7:1 · on bone 4.2:1 ✕ small</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--bronze);"></div><div class="pal-info"><b>Bronze</b><code>#8A735B</code><span>Accent: display italics, icons, focus ring.</span><span class="pal-cr">On bone 4.0:1 · large text + UI only</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--sand);"></div><div class="pal-info"><b>Sand</b><code>#B4A99A</code><span>Secondary text and accents on dark.</span><span class="pal-cr">On ink 7.6:1</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--mist);"></div><div class="pal-info"><b>Mist</b><code>#D0CBC2</code><span>Borders, dividers, input outlines.</span><span class="pal-cr">Decorative</span></div></div><div class="pal"><div class="pal-chip" style="background:var(--linen);"></div><div class="pal-info"><b>Linen</b><code>#DED9D0</code><span>Quiet panels, trade band, hover fill.</span><span class="pal-cr">Decorative</span></div></div></div>
+
+      <h2>Type</h2>
+      <div class="type-row"><span class="meta">Display · Instrument Serif 116/0.94</span><span class="h1">Surfaces you can <em>feel</em></span></div>
+      <div class="type-row"><span class="meta">H2 · Instrument Serif 68/1.0</span><span class="h2">Nine surfaces. <em>Endless</em> rooms.</span></div>
+      <div class="type-row"><span class="meta">H3 · Instrument Serif 30/1.12</span><span class="h3">Live with them</span></div>
+      <div class="type-row"><span class="meta">Lede · Inter 19/1.6 Graphite</span><p class="lede">Mineral plasters and natural stone, hand-finished in our studio.</p></div>
+      <div class="type-row"><span class="meta">Body · Inter 16/1.6 Ink</span><p>Hand-finished A4 boards arrive in two days. Look at them morning and evening.</p></div>
+      <div class="type-row"><span class="meta">Eyebrow · Inter 600 12 +14%</span><p class="eyebrow">The collection</p></div>
+
+      <h2>Components</h2>
+      <div class="comp-row">
+        <a class="btn" href="#">Order 5 free samples <i data-icon="arrow"></i></a>
+        <a class="btn btn--ghost" href="#">Request a quote</a>
+        <a class="link" href="#">Explore the collection <i data-icon="arrow"></i></a>
+        <button class="card-add" style="position:static" type="button" aria-pressed="false"><i data-icon="plus"></i><span>Sample</span></button>
+        <button class="card-add" style="position:static" type="button" aria-pressed="true"><i data-icon="check"></i><span>In sample box</span></button>
+        <div class="seg" role="group" aria-label="Finish"><button type="button" aria-pressed="true">Matt</button><button type="button" aria-pressed="false">Burnished</button></div>
+        <button class="chip" type="button" aria-pressed="true">All</button><button class="chip" type="button" aria-pressed="false">Plaster</button>
+      </div>
+      <div class="form-grid" style="max-width:760px;margin-top:32px">
+        <div class="field"><label for="d1">Default</label><input class="input" id="d1" placeholder="name@studio.com"></div>
+        <div class="field"><label for="d2">Focus</label><input class="input sys-focus" id="d2" value="ada@studio.com"></div>
+        <div class="field field--error"><label for="d3">Error</label><input class="input" id="d3" value="ada@" aria-invalid="true" aria-describedby="d3e"><p class="err" id="d3e"><i data-icon="alert"></i> Enter an email address, like name@studio.com</p></div>
+        <div class="field"><label class="check" style="margin-top:30px"><input type="checkbox" checked> Checkbox, ink accent</label></div>
+      </div>
+
+      <h2>Material imagery</h2>
+      <p class="lede" style="margin-bottom:24px">Generated from palette colours only, so no off-brand hue can enter through imagery. Swap for photography shot on bone, in raking daylight from the upper left.</p>
+      <div class="mat-row"><figure><div class="mat" data-mat="chalk"></div><b>Chalk</b><br><span class="meta">Lime plaster</span></figure><figure><div class="mat" data-mat="ash"></div><b>Ash</b><br><span class="meta">Microcement</span></figure><figure><div class="mat" data-mat="sand"></div><b>Sand</b><br><span class="meta">Travertine</span></figure><figure><div class="mat" data-mat="umber"></div><b>Umber</b><br><span class="meta">Tadelakt</span></figure><figure><div class="mat" data-mat="taupe"></div><b>Taupe</b><br><span class="meta">Clay plaster</span></figure><figure><div class="mat" data-mat="vein"></div><b>Pale Vein</b><br><span class="meta">Limestone</span></figure><figure><div class="mat" data-mat="graphite"></div><b>Graphite</b><br><span class="meta">Basalt</span></figure><figure><div class="mat" data-mat="carbon"></div><b>Carbon</b><br><span class="meta">Oxide plaster</span></figure><figure><div class="mat" data-mat="linen"></div><b>Bone</b><br><span class="meta">Linen</span></figure></div>
+
+      <h2>Rules</h2>
+      <div class="rules">
+        <div><h3>Colour</h3><ul><li>Bronze and Stone never set text under 24px on bone.</li><li>Only one dark band per screen, plus the footer.</li><li>Alpha is for light, shadow and texture only, never to invent a flat UI colour.</li><li>Errors are signalled with weight, icon and copy, never with a new red.</li></ul></div>
+        <div><h3>Motion and interaction</h3><ul><li>One entrance per page: text rises 14px over 700ms, imagery unveils over 1s. Nothing loops.</li><li>Hover changes are 200–350ms colour or underline only.</li><li>Every animation is removed under prefers-reduced-motion.</li><li>Tap targets ≥ 44px. Focus ring: 2px Bronze, 3px offset (Sand on dark).</li></ul></div>
+      </div>
+    </div>
+  </main>
+  <div data-include="footer"></div>
+  <script src="assets/partials.js"></script>
+</body>
+</html>

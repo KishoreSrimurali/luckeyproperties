@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materials — Texturr</title>
+  <link rel="stylesheet" href="assets/texturr.css">
+  <link rel="stylesheet" href="assets/pages.css">
+  <script src="assets/materials.js" defer></script>
+</head>
+<body data-page="materials" data-samples="2">
+  <div data-include="header"></div>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="page-head">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Materials</span></nav>
+        <div class="page-head-grid">
+          <div>
+            <h1>The <em>collection</em></h1>
+            <p class="lede">Nine mineral finishes, each made to order. Add up to five to your sample box. They’re free and dispatched within 48 hours.</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="toolbar">
+        <div class="chips" role="group" aria-label="Material family">
+          <button class="chip" type="button" aria-pressed="true">All</button>
+          <button class="chip" type="button" aria-pressed="false">Plaster</button>
+          <button class="chip" type="button" aria-pressed="false">Microcement</button>
+          <button class="chip" type="button" aria-pressed="false">Stone</button>
+          <button class="chip" type="button" aria-pressed="false">Wallcovering</button>
+          <button class="chip" type="button" aria-pressed="false" aria-label="More filters"><i data-icon="plus"></i> Filters</button>
+        </div>
+        <div class="toolbar-right">
+          <span class="num" role="status">9 finishes</span>
+          <label class="sr-only" for="sort">Sort by</label>
+          <select class="sort" id="sort"><option>Sort: Curated</option><option>Price, low to high</option><option>Price, high to low</option></select>
+        </div>
+      </div>
+
+      <div class="shop">
+        <aside class="filters" aria-label="Filters">
+          <fieldset>
+            <legend>Where it goes</legend>
+            <label class="check"><input type="checkbox" checked> Walls <span class="count num">6</span></label>
+            <label class="check"><input type="checkbox"> Floors <span class="count num">4</span></label>
+            <label class="check"><input type="checkbox"> Wet rooms <span class="count num">3</span></label>
+            <label class="check"><input type="checkbox"> Worktops <span class="count num">2</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Tone</legend>
+            <div class="tones"><button class="tone" type="button" style="background:var(--bone)" aria-pressed="true" aria-label="Bone tones"></button><button class="tone" type="button" style="background:var(--linen)" aria-pressed="false" aria-label="Linen tones"></button><button class="tone" type="button" style="background:var(--mist)" aria-pressed="false" aria-label="Mist tones"></button><button class="tone" type="button" style="background:var(--sand)" aria-pressed="false" aria-label="Sand tones"></button><button class="tone" type="button" style="background:var(--bronze)" aria-pressed="false" aria-label="Bronze tones"></button><button class="tone" type="button" style="background:var(--graphite)" aria-pressed="false" aria-label="Graphite tones"></button><button class="tone" type="button" style="background:var(--ink)" aria-pressed="false" aria-label="Ink tones"></button></div>
+          </fieldset>
+          <fieldset>
+            <legend>Finish</legend>
+            <label class="check"><input type="checkbox"> Matt <span class="count num">7</span></label>
+            <label class="check"><input type="checkbox"> Burnished <span class="count num">4</span></label>
+            <label class="check"><input type="checkbox"> Polished <span class="count num">3</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Needs</legend>
+            <label class="check"><input type="checkbox"> Waterproof <span class="count num">3</span></label>
+            <label class="check"><input type="checkbox"> Underfloor heating <span class="count num">4</span></label>
+            <label class="check"><input type="checkbox"> Low-VOC <span class="count num">9</span></label>
+          </fieldset>
+          <a class="link" href="#">Not sure? Ask a consultant <i data-icon="arrow"></i></a>
+        </aside>
+
+        <div>
+        <h2 class="sr-only">Finishes</h2>
+        <div class="grid3">
+          <article class="card">
+            <a class="card-media mat" data-mat="chalk" href="#" aria-label="Lime plaster in Chalk"></a>
+            <button class="card-add" type="button" aria-pressed="true" aria-label="Lime plaster Chalk — in your sample box"><i data-icon="check"></i><span>In sample box</span></button>
+            <div class="card-body"><p class="eyebrow">Lime plaster<span class="eb-use"> · Walls &amp; ceilings</span></p><h3><a href="#">Chalk</a></h3><p class="meta num">From £68 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="ash" href="#" aria-label="Microcement in Ash"></a>
+            <button class="card-add" type="button" aria-pressed="true" aria-label="Microcement Ash — in your sample box"><i data-icon="check"></i><span>In sample box</span></button>
+            <div class="card-body"><p class="eyebrow">Microcement<span class="eb-use"> · Floors &amp; walls</span></p><h3><a href="#">Ash</a></h3><p class="meta num">From £84 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="sand" href="#" aria-label="Travertine in Sand"></a>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Travertine Sand to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Travertine<span class="eb-use"> · Floors</span></p><h3><a href="#">Sand</a></h3><p class="meta num">From £148 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="umber" href="#" aria-label="Tadelakt in Umber"></a><span class="tag">Bestseller</span>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Tadelakt Umber to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Tadelakt<span class="eb-use"> · Wet rooms</span></p><h3><a href="#">Umber</a></h3><p class="meta num">From £112 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="taupe" href="product.html" aria-label="Clay plaster in Taupe"></a>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Clay plaster Taupe to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Clay plaster<span class="eb-use"> · Walls</span></p><h3><a href="product.html">Taupe</a></h3><p class="meta num">From £72 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="vein" href="#" aria-label="Limestone in Pale Vein"></a>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Limestone Pale Vein to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Limestone<span class="eb-use"> · Worktops</span></p><h3><a href="#">Pale Vein</a></h3><p class="meta num">From £240 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="graphite" href="#" aria-label="Basalt in Graphite"></a>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Basalt Graphite to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Basalt<span class="eb-use"> · Floors &amp; plinths</span></p><h3><a href="#">Graphite</a></h3><p class="meta num">From £186 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="carbon" href="#" aria-label="Oxide plaster in Carbon"></a><span class="tag">New</span>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Oxide plaster Carbon to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Oxide plaster<span class="eb-use"> · Feature walls</span></p><h3><a href="#">Carbon</a></h3><p class="meta num">From £96 / m²</p></div>
+          </article>
+          <article class="card">
+            <a class="card-media mat" data-mat="linen" href="#" aria-label="Linen wallcovering in Bone"></a>
+            <button class="card-add" type="button" aria-pressed="false" aria-label="Add Linen wallcovering Bone to sample box"><i data-icon="plus"></i><span>Sample</span></button>
+            <div class="card-body"><p class="eyebrow">Linen wallcovering<span class="eb-use"> · Walls</span></p><h3><a href="#">Bone</a></h3><p class="meta num">From £54 / m²</p></div>
+          </article>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="sample-bar dark" aria-label="Sample box">
+      <div class="wrap">
+        <div class="sb-slots" aria-hidden="true">
+          <span class="mat" data-mat="chalk"></span><span class="mat" data-mat="ash"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+        </div>
+        <p class="sb-text"><b class="num">2 of 5 samples</b><span>Free · Dispatched within 48 hours</span></p>
+        <a class="btn btn--light" href="samples.html"><span>Review<span class="sb-long"> sample box</span></span> <i data-icon="arrow"></i></a>
+      </div>
+    </aside>
+  </main>
+
+  <div data-include="footer"></div>
+  <script src="assets/partials.js"></script>
+</body>
+</html>
