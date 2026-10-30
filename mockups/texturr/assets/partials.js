@@ -28,10 +28,10 @@
   const count = +(body.dataset.samples || 0);
   const minimal = "minimal" in body.dataset; // sample request form: no nav, one way out
   const nav = [
-    ["materials", "Materials", "collection.html"],
+    ["panels", "Panels", "index.html#panels"],
+    ["materials", "Finishes", "collection.html"],
     ["projects", "Projects", "#"],
-    ["professionals", "Professionals", "#"],
-    ["downloads", "Downloads", "#"],
+    ["visit", "Experience Center", "#"],
   ];
   const cur = (k) => (k === page ? ' aria-current="page"' : "");
   // Logo artwork: traced from the supplied logo, recoloured to the locked palette.
@@ -61,16 +61,16 @@
     <div class="mnav dark" id="mnav" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="mnav-top">${wordmarkRev}<button class="icon-btn" type="button" aria-label="Close menu">${icon("close")}</button></div>
       <ul>
-        <li><a href="collection.html">Materials <small>9 surfaces</small></a></li>
+        <li><a href="index.html#panels">Panels <small>ImpactShield · Fluted</small></a></li>
+        <li><a href="collection.html">Finishes <small>In stock</small></a></li>
         <li><a href="#">Projects ${icon("arrow")}</a></li>
-        <li><a href="#">Professionals ${icon("arrow")}</a></li>
-        <li><a href="#">Downloads ${icon("arrow")}</a></li>
-        <li><a href="samples.html">Sample request <small class="num">${count}</small></a></li>
+        <li><a href="#">Experience Center ${icon("arrow")}</a></li>
+                <li><a href="samples.html">Sample request <small class="num">${count}</small></a></li>
       </ul>
       <div class="mnav-foot">
         <a class="btn btn--light btn--block" href="#">Request a quote</a>
         <a class="btn btn--ghost btn--block" style="--fg:var(--white);--bd:var(--on-dark-2)" href="collection.html">Request samples</a>
-        <p class="meta">Specification team, Mon–Fri 9–6 · projects@texturr.studio</p>
+        <p class="meta">+91 99160 89900 · info@texturr.com</p>
       </div>
     </div>`;
 
@@ -80,19 +80,19 @@
         <div class="footer-grid">
           <div>
             <a class="footer-logo" href="index.html" aria-label="Texturr, Surface Evolution — home">${logo(true, true)}</a>
-            <p class="lede" style="margin-top:20px;max-width:24em">Architectural surfaces for hospitality, workplace, retail and residential projects.</p>
+            <p class="lede" style="margin-top:20px;max-width:24em">ImpactShield and Fluted wall panels for residential, commercial and hospitality projects.</p>
             <form class="news" onsubmit="return false">
               <label class="sr-only" for="nl">Work email</label>
-              <input id="nl" type="email" placeholder="Project news for specifiers — work email" autocomplete="email">
+              <input id="nl" type="email" placeholder="New collections and stock updates — work email" autocomplete="email">
               <button type="submit" aria-label="Subscribe">${icon("arrow")}</button>
             </form>
           </div>
-          <div><h2 class="foot-h">Materials</h2><ul><li><a href="#">Stone-look slabs</a></li><li><a href="#">Feature slabs</a></li><li><a href="#">Wood panels</a></li><li><a href="#">Metal profiles</a></li><li><a href="#">Lacquer</a></li></ul></div>
-          <div><h2 class="foot-h">Professionals</h2><ul><li><a href="#">Architects &amp; designers</a></li><li><a href="#">Contractors</a></li><li><a href="#">Developers</a></li><li><a href="#">Technical downloads</a></li></ul></div>
-          <div><h2 class="foot-h">Company</h2><ul><li><a href="#">About Texturr</a></li><li><a href="#">Showroom</a></li><li><a href="#">Logistics &amp; delivery</a></li><li><a href="#">Contact</a></li></ul></div>
+          <div><h2 class="foot-h">Products</h2><ul><li><a href="index.html#panels">ImpactShield Panel</a></li><li><a href="index.html#panels">Fluted Panel</a></li><li><a href="collection.html">In-stock finishes</a></li><li><a href="#">Aluminium profiles</a></li><li><a href="#">Catalogues</a></li></ul></div>
+          <div><h2 class="foot-h">Series</h2><ul><li><a href="collection.html">Metal</a></li><li><a href="collection.html">Wood</a></li><li><a href="collection.html">Solid</a></li><li><a href="collection.html">Stone</a></li><li><a href="collection.html">Cloth</a></li></ul></div>
+          <div><h2 class="foot-h">Experience Center</h2><address class="foot-addr">Galaxy Surfaces<br># 168, 3rd Floor, Arasoji Rao Building<br>R V Road, Near Minerva Circle<br>Bengaluru 560004</address><ul><li><a href="tel:+919916089900">+91 99160 89900</a></li><li><a href="mailto:info@texturr.com">info@texturr.com</a></li></ul></div>
         </div>
         <div class="footer-base">
-          <span>© 2026 Texturr · Trade supply only</span>
+          <span>© 2026 Texturr India · Galaxy Surfaces</span>
           <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></nav>
         </div>
       </div>
@@ -102,7 +102,7 @@
   const slimFooter = `
     <footer class="footer footer--slim dark">
       <div class="wrap footer-base">
-        <span>© 2026 Texturr · Specification team 020 7946 0000</span>
+        <span>© 2026 Texturr India · +91 99160 89900</span>
         <nav aria-label="Legal"><a href="#">Delivery</a><a href="#">Privacy</a><a href="#">Accessibility</a></nav>
       </div>
     </footer>`;
