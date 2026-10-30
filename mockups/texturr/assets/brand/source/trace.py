@@ -31,9 +31,9 @@ vb_full=f"{x0-1:.1f} {y0-1:.1f} {x1-x0+2:.1f} {y1-y0+2:.1f}"
 vb_word=f"{x0-1:.1f} {wy0-1:.1f} {x1-x0+2:.1f} {wy1-wy0+2:.1f}"
 def svg(vb,tag_on,title):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}" role="img" aria-labelledby="t"><title id="t">{title}</title>'
-      f'<path class="lg-word" fill-rule="evenodd" fill="var(--logo-word, #191917)" d="{pw}"/>'
-      f'<path class="lg-accent" fill-rule="evenodd" fill="var(--logo-accent, #8A735B)" d="{pa}"/>'
-      + (f'<path class="lg-tag" fill-rule="evenodd" fill="var(--logo-tag, var(--logo-word, #191917))" d="{pt}"/>' if tag_on else '') + '</svg>')
+      f'<path class="lg-word" fill-rule="evenodd" fill="var(--logo-word, #111827)" d="{pw}"/>'
+      f'<path class="lg-accent" fill-rule="evenodd" fill="var(--logo-accent, #EC2227)" d="{pa}"/>'
+      + (f'<path class="lg-tag" fill-rule="evenodd" fill="var(--logo-tag, var(--logo-word, #111827))" d="{pt}"/>' if tag_on else '') + '</svg>')
 out=sys.argv[2]
 open(f'{out}/texturr-logo.svg','w').write(svg(vb_full,True,'Texturr — Surface Evolution'))
 open(f'{out}/texturr-wordmark.svg','w').write(svg(vb_word,False,'Texturr'))

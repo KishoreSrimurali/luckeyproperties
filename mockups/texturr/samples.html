@@ -6,7 +6,6 @@
   <title>Your sample box — Texturr</title>
   <link rel="stylesheet" href="assets/texturr.css">
   <link rel="stylesheet" href="assets/pages.css">
-  <script src="assets/materials.js" defer></script>
 </head>
 <body data-page="samples" data-samples="3" data-minimal>
   <div data-include="header"></div>
@@ -51,7 +50,7 @@
 
           <div class="form-block">
             <h2>About your project <span class="opt-tag">Optional</span></h2>
-            <p class="meta block-intro">It helps us include the right care cards and suggest pairings. Skip it if you like.</p>
+            <p class="meta block-intro">It helps us include the right fitting notes and suggest pairings. Skip it if you like.</p>
             <fieldset class="radio-fieldset">
               <legend class="sr-only">Project type</legend>
               <div class="radio-cards">
@@ -61,7 +60,7 @@
               </div>
             </fieldset>
             <div class="checks">
-              <label class="check"><input type="checkbox" checked> A finish consultant can call me to talk through my samples</label>
+              <label class="check"><input type="checkbox" checked> A surface consultant can call me to talk through my samples</label>
               <label class="check"><input type="checkbox"> Send me material notes once a month. Unsubscribe any time.</label>
             </div>
           </div>
@@ -76,19 +75,19 @@
           <h2 id="sum-title">In the box <small class="num">3 of 5</small></h2>
           <a class="u summary-edit" href="collection.html">Edit</a>
           <ul class="s-items">
-            <li><span class="thumb mat" data-mat="chalk"></span><div><b>Chalk</b><span>Lime plaster · Matt</span></div><button class="rm" type="button" aria-label="Remove Chalk">Remove</button></li>
-            <li><span class="thumb mat" data-mat="ash"></span><div><b>Ash</b><span>Microcement · Satin</span></div><button class="rm" type="button" aria-label="Remove Ash">Remove</button></li>
-            <li><span class="thumb mat" data-mat="taupe"></span><div><b>Taupe</b><span>Clay plaster · Matt</span></div><button class="rm" type="button" aria-label="Remove Taupe">Remove</button></li>
+            <li><span class="thumb" data-swatch="statuario"></span><div><b>Statuario Bianco</b><span>Stone-look slab · Polished</span></div><button class="rm" type="button" aria-label="Remove Statuario Bianco">Remove</button></li>
+            <li><span class="thumb" data-swatch="breccia"></span><div><b>Breccia Grigio</b><span>Stone-look slab · Polished</span></div><button class="rm" type="button" aria-label="Remove Breccia Grigio">Remove</button></li>
+            <li><span class="thumb" data-swatch="calacatta"></span><div><b>Calacatta Oro</b><span>Stone-look slab · Polished</span></div><button class="rm" type="button" aria-label="Remove Calacatta Oro">Remove</button></li>
             <li><span class="empty-thumb"><i data-icon="plus"></i></span><p class="add-more">Two more free. <a href="collection.html">Add a finish</a></p><span></span></li>
           </ul>
           <div class="totals">
-            <div><span>3 hand-finished samples</span><span class="num">Free</span></div>
+            <div><span>3 real samples, 300 × 300 mm</span><span class="num">Free</span></div>
             <div><span>Delivery, 2 working days</span><span class="num">Free</span></div>
             <div class="total"><span>Total</span><span class="num">£0.00</span></div>
           </div>
           <div class="pairing">
-            <span class="mat" data-mat="sand" aria-hidden="true"></span>
-            <div><b>Pairs with your Taupe:</b> Travertine in Sand, for floors.<br><button class="rm pair-add" type="button">Add to box</button></div>
+            <span class="pair-swatch" data-swatch="oak-fluted" aria-hidden="true"></span>
+            <div><b>Pairs with your Calacatta Oro:</b> Fluted Smoked Oak, for warmth.<br><button class="rm pair-add" type="button">Add to box</button></div>
           </div>
         </aside>
       </div>
@@ -97,5 +96,6 @@
 
   <div data-include="footer"></div>
   <script src="assets/partials.js"></script>
+  <script src="assets/catalog.js"></script>
 </body>
 </html>

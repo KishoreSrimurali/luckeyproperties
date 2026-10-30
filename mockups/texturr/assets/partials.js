@@ -35,7 +35,7 @@
   ];
   const cur = (k) => (k === page ? ' aria-current="page"' : "");
   // Logo artwork: traced from the supplied logo, recoloured to the locked palette.
-  // Standard = Ink + Bronze stripes (light grounds); reverse = Bone + Sand stripes (dark grounds).
+  // Standard = #111827 letters (light grounds); reverse = white letters (dark grounds). Stripes keep the logo red.
   const logo = (reverse, full) =>
     `<img src="assets/brand/texturr-${full ? "logo" : "wordmark"}${reverse ? "-reverse" : ""}.svg" alt="" ` +
     (full ? `width="624" height="144"` : `width="624" height="98"`) + `>`;
@@ -61,7 +61,7 @@
     <div class="mnav dark" id="mnav" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="mnav-top">${wordmarkRev}<button class="icon-btn" type="button" aria-label="Close menu">${icon("close")}</button></div>
       <ul>
-        <li><a href="collection.html">Materials <small>9 finishes</small></a></li>
+        <li><a href="collection.html">Materials <small>9 surfaces</small></a></li>
         <li><a href="#">Projects ${icon("arrow")}</a></li>
         <li><a href="#">Studio ${icon("arrow")}</a></li>
         <li><a href="#">Journal ${icon("arrow")}</a></li>
@@ -69,7 +69,7 @@
       </ul>
       <div class="mnav-foot">
         <a class="btn btn--light btn--block" href="collection.html">Order free samples</a>
-        <a class="btn btn--ghost btn--block" style="--fg:var(--bone);--bd:var(--sand)" href="#">Book a consultation</a>
+        <a class="btn btn--ghost btn--block" style="--fg:var(--white);--bd:var(--on-dark-2)" href="#">Book a consultation</a>
         <p class="meta">Studio open Mon–Fri, 9–6 · hello@texturr.studio</p>
       </div>
     </div>`;
@@ -80,16 +80,16 @@
         <div class="footer-grid">
           <div>
             <a class="footer-logo" href="index.html" aria-label="Texturr, Surface Evolution — home">${logo(true, true)}</a>
-            <p class="lede" style="margin-top:20px;max-width:24em">Mineral surfaces, hand-finished in our studio and specified with you.</p>
+            <p class="lede" style="margin-top:20px;max-width:24em">Stone, wood and metal surfaces for considered interiors, specified with you.</p>
             <form class="news" onsubmit="return false">
               <label class="sr-only" for="nl">Email address</label>
               <input id="nl" type="email" placeholder="Material notes, monthly — your email" autocomplete="email">
               <button type="submit" aria-label="Subscribe">${icon("arrow")}</button>
             </form>
           </div>
-          <div><h2 class="foot-h">Materials</h2><ul><li><a href="#">Lime plaster</a></li><li><a href="#">Microcement</a></li><li><a href="#">Tadelakt</a></li><li><a href="#">Stone</a></li><li><a href="#">Wallcoverings</a></li></ul></div>
-          <div><h2 class="foot-h">Trade</h2><ul><li><a href="#">Architects &amp; designers</a></li><li><a href="#">Specification sheets</a></li><li><a href="#">Approved applicators</a></li><li><a href="#">Project pricing</a></li></ul></div>
-          <div><h2 class="foot-h">Studio</h2><ul><li><a href="#">Visit the studio</a></li><li><a href="#">Delivery &amp; returns</a></li><li><a href="#">Care guides</a></li><li><a href="#">Contact</a></li></ul></div>
+          <div><h2 class="foot-h">Materials</h2><ul><li><a href="#">Stone-look slabs</a></li><li><a href="#">Feature slabs</a></li><li><a href="#">Wood panels</a></li><li><a href="#">Metal profiles</a></li><li><a href="#">Lacquer</a></li></ul></div>
+          <div><h2 class="foot-h">Trade</h2><ul><li><a href="#">Architects &amp; designers</a></li><li><a href="#">Specification sheets</a></li><li><a href="#">Approved fitters</a></li><li><a href="#">Project pricing</a></li></ul></div>
+          <div><h2 class="foot-h">Studio</h2><ul><li><a href="#">Visit the studio</a></li><li><a href="#">Delivery &amp; returns</a></li><li><a href="#">Care and fitting</a></li><li><a href="#">Contact</a></li></ul></div>
         </div>
         <div class="footer-base">
           <span>© 2026 Texturr</span>
@@ -107,9 +107,6 @@
       </div>
     </footer>`;
   document.querySelectorAll("[data-include=footer]").forEach((el) => (el.outerHTML = minimal ? slimFooter : footer));
-  // Brand device: the three speed stripes from the logo
-  document.querySelectorAll("i[data-stripes]").forEach((el) => (el.outerHTML =
-    `<svg class="stripes" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 0h13l1.6 2.2H1.6zM3.2 4.6h13l1.6 2.2H4.8zM6.4 9.2h13l1.6 2.2H8z"/></svg>`));
   document.querySelectorAll("i[data-icon]").forEach((el) => (el.outerHTML = icon(el.dataset.icon)));
 
   // Menu open/close with focus handoff

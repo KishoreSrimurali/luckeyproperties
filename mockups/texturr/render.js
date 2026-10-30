@@ -7,7 +7,7 @@ const { chromium } = require("playwright");
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, "png");
-const TYPES = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".woff2": "font/woff2" };
+const TYPES = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".woff2": "font/woff2", ".svg": "image/svg+xml", ".webp": "image/webp", ".png": "image/png" };
 
 const SHOTS = [
   // [file, page, width, full page?, scale]
@@ -50,8 +50,14 @@ const server = http.createServer((req, res) => {
       await p.evaluate(() => document.documentElement.classList.add("capture-full"));
       const h = await p.evaluate(() => document.documentElement.scrollHeight);
       await p.setViewportSize({ width, height: h });
+      // Lazy images below the fold load once the viewport covers them; wait until all have decoded
+      await p.evaluate(() => Promise.all([...document.images].filter((i) => i.getClientRects().length) // hidden lazy images never load
+        .map((i) => i.complete ? 1 : Promise.race([new Promise((r) => (i.onload = i.onerror = r)), new Promise((r) => setTimeout(r, 4000))]))));
       await p.waitForTimeout(200);
     }
+    // Fail loudly on any image that did not decode (e.g. a wrong MIME type on the logo SVG)
+    const broken = await p.evaluate(() => [...document.images].filter((i) => i.getClientRects().length && i.complete && !i.naturalWidth).map((i) => i.src));
+    if (broken.length) throw new Error(`${name}: broken images ${broken.join(", ")}`);
     await p.screenshot({ path: path.join(OUT, `${name}.png`) });
     console.log("✓", name);
     await p.close();
