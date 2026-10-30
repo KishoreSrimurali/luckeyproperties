@@ -26,12 +26,12 @@
   const body = document.body;
   const page = body.dataset.page || "";
   const count = +(body.dataset.samples || 0);
-  const minimal = "minimal" in body.dataset; // checkout: no nav, one way out
+  const minimal = "minimal" in body.dataset; // sample request form: no nav, one way out
   const nav = [
     ["materials", "Materials", "collection.html"],
     ["projects", "Projects", "#"],
-    ["studio", "Studio", "#"],
-    ["journal", "Journal", "#"],
+    ["professionals", "Professionals", "#"],
+    ["downloads", "Downloads", "#"],
   ];
   const cur = (k) => (k === page ? ' aria-current="page"' : "");
   // Logo artwork: traced from the supplied logo, recoloured to the locked palette.
@@ -52,8 +52,8 @@
         <nav class="nav" aria-label="Primary">${nav.map(([k, l, h]) => `<a href="${h}"${cur(k)}>${l}</a>`).join("")}</nav>
         <div class="header-actions">
           <button class="icon-btn search-btn" type="button" aria-label="Search materials">${icon("search")}</button>
-          <a class="icon-btn" href="samples.html" aria-label="Sample box, ${count} of 5 chosen">${icon("box")}${count ? `<span class="badge num" aria-hidden="true">${count}</span>` : ""}</a>
-          <a class="btn btn--sm" href="#">Book a consultation</a>
+          <a class="icon-btn" href="samples.html" aria-label="Sample request, ${count} surfaces">${icon("box")}${count ? `<span class="badge num" aria-hidden="true">${count}</span>` : ""}</a>
+          <a class="btn btn--sm" href="#">Request a quote</a>
           <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">${icon("menu")}</button>
         </div>`}
       </div>
@@ -63,14 +63,14 @@
       <ul>
         <li><a href="collection.html">Materials <small>9 surfaces</small></a></li>
         <li><a href="#">Projects ${icon("arrow")}</a></li>
-        <li><a href="#">Studio ${icon("arrow")}</a></li>
-        <li><a href="#">Journal ${icon("arrow")}</a></li>
-        <li><a href="samples.html">Sample box <small class="num">${count} / 5</small></a></li>
+        <li><a href="#">Professionals ${icon("arrow")}</a></li>
+        <li><a href="#">Downloads ${icon("arrow")}</a></li>
+        <li><a href="samples.html">Sample request <small class="num">${count}</small></a></li>
       </ul>
       <div class="mnav-foot">
-        <a class="btn btn--light btn--block" href="collection.html">Order free samples</a>
-        <a class="btn btn--ghost btn--block" style="--fg:var(--white);--bd:var(--on-dark-2)" href="#">Book a consultation</a>
-        <p class="meta">Studio open Mon–Fri, 9–6 · hello@texturr.studio</p>
+        <a class="btn btn--light btn--block" href="#">Request a quote</a>
+        <a class="btn btn--ghost btn--block" style="--fg:var(--white);--bd:var(--on-dark-2)" href="collection.html">Request samples</a>
+        <p class="meta">Specification team, Mon–Fri 9–6 · projects@texturr.studio</p>
       </div>
     </div>`;
 
@@ -80,19 +80,19 @@
         <div class="footer-grid">
           <div>
             <a class="footer-logo" href="index.html" aria-label="Texturr, Surface Evolution — home">${logo(true, true)}</a>
-            <p class="lede" style="margin-top:20px;max-width:24em">Stone, wood and metal surfaces for considered interiors, specified with you.</p>
+            <p class="lede" style="margin-top:20px;max-width:24em">Architectural surfaces for hospitality, workplace, retail and residential projects.</p>
             <form class="news" onsubmit="return false">
-              <label class="sr-only" for="nl">Email address</label>
-              <input id="nl" type="email" placeholder="Material notes, monthly — your email" autocomplete="email">
+              <label class="sr-only" for="nl">Work email</label>
+              <input id="nl" type="email" placeholder="Project news for specifiers — work email" autocomplete="email">
               <button type="submit" aria-label="Subscribe">${icon("arrow")}</button>
             </form>
           </div>
           <div><h2 class="foot-h">Materials</h2><ul><li><a href="#">Stone-look slabs</a></li><li><a href="#">Feature slabs</a></li><li><a href="#">Wood panels</a></li><li><a href="#">Metal profiles</a></li><li><a href="#">Lacquer</a></li></ul></div>
-          <div><h2 class="foot-h">Trade</h2><ul><li><a href="#">Architects &amp; designers</a></li><li><a href="#">Specification sheets</a></li><li><a href="#">Approved fitters</a></li><li><a href="#">Project pricing</a></li></ul></div>
-          <div><h2 class="foot-h">Studio</h2><ul><li><a href="#">Visit the studio</a></li><li><a href="#">Delivery &amp; returns</a></li><li><a href="#">Care and fitting</a></li><li><a href="#">Contact</a></li></ul></div>
+          <div><h2 class="foot-h">Professionals</h2><ul><li><a href="#">Architects &amp; designers</a></li><li><a href="#">Contractors</a></li><li><a href="#">Developers</a></li><li><a href="#">Technical downloads</a></li></ul></div>
+          <div><h2 class="foot-h">Company</h2><ul><li><a href="#">About Texturr</a></li><li><a href="#">Showroom</a></li><li><a href="#">Logistics &amp; delivery</a></li><li><a href="#">Contact</a></li></ul></div>
         </div>
         <div class="footer-base">
-          <span>© 2026 Texturr</span>
+          <span>© 2026 Texturr · Trade supply only</span>
           <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></nav>
         </div>
       </div>
@@ -102,7 +102,7 @@
   const slimFooter = `
     <footer class="footer footer--slim dark">
       <div class="wrap footer-base">
-        <span>© 2026 Texturr · Questions? 020 7946 0000</span>
+        <span>© 2026 Texturr · Specification team 020 7946 0000</span>
         <nav aria-label="Legal"><a href="#">Delivery</a><a href="#">Privacy</a><a href="#">Accessibility</a></nav>
       </div>
     </footer>`;

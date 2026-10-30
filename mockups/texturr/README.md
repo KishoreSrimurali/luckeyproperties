@@ -3,10 +3,12 @@
 Four core screens plus a UI-system sheet, built responsively in HTML/CSS and rendered to PNG at
 **1440 px (desktop)** and **390 px (mobile)**.
 
-**Brief, as inferred from the supplied photography:** Texturr supplies architectural surfaces: large-format
-stone-look slabs, wood and fluted panels, metal profiles and lacquer, for commercial and residential interiors.
-The site's primary conversion is **five free samples**, and its secondary conversion is **a consultation or quote**.
-**Product names, prices, specifications and project captions are placeholders** for you to confirm.
+**Brief:** Texturr is a **B2B** supplier of architectural surfaces (large-format stone-look slabs, wood and
+fluted panels, metal profiles and lacquer) to architects, interior designers, contractors and developers working on
+hospitality, workplace, retail and residential projects. **No prices are shown anywhere:** pricing is
+project-based and quoted on request. The conversions are **Request a quote**, **Request samples** (a trade
+sample request with company, role, project, sector and stage) and **Become a partner**.
+Product names, formats, specifications and project captions are placeholders for you to confirm.
 
 ## Photography
 
@@ -27,9 +29,9 @@ below the fold. Run it against the folder of supplied `image_N.jpg` files to reb
 | --- | --- | --- |
 | UI system: palette roles, type, components, materials, rules | `desktop-00-design-system.png` | — |
 | Home: photo hero with surface hotspots, collection, sampling, material study, projects | `desktop-01-home.png`, `desktop-01-home-fold.png` | `mobile-01-home.png`, `mobile-01-home-fold.png` |
-| Collection: filters, sample toggles, sticky sample bar | `desktop-02-collection.png` | `mobile-02-collection.png`, `mobile-02-collection-fold.png` |
-| Product (Calacatta Oro): gallery, colourway/finish, cost estimate | `desktop-03-product.png` | `mobile-03-product.png`, `mobile-03-product-fold.png` |
-| Sample box checkout: focused header, error state, summary | `desktop-04-sample-box.png` | `mobile-04-sample-box.png` |
+| Collection: sector filters, sample toggles, sticky sample-request bar | `desktop-02-collection.png` | `mobile-02-collection.png`, `mobile-02-collection-fold.png` |
+| Product (Calacatta Oro): gallery, key facts, technical downloads, quote and sample request | `desktop-03-product.png` | `mobile-03-product.png`, `mobile-03-product-fold.png` |
+| Sample request: details, project, sector, stage, delivery | `desktop-04-sample-box.png` | `mobile-04-sample-box.png` |
 | Mobile menu | — | `mobile-05-menu.png` |
 
 "Fold" shots show the first screen exactly as a visitor sees it, including sticky bars.
