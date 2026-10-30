@@ -21,6 +21,19 @@ secondary conversion is **a consultation or quote**. Product names, prices and s
 "Fold" shots show the first screen exactly as a visitor sees it, including sticky bars.
 The full-length shots place each sticky bar at the end of the page, where it comes to rest when you scroll to the bottom.
 
+## Logo
+
+`assets/brand/` holds vector versions of the supplied logo, traced from `source/texturr-logo-supplied.png`
+with `source/trace.py`:
+
+- `texturr-logo.svg` / `texturr-logo-reverse.svg`: the logo with the "Surface Evolution" tagline, used in the footer and print
+- `texturr-wordmark.svg` / `texturr-wordmark-reverse.svg`: the wordmark alone, used in the header and menu
+
+The supplied artwork is white on navy `#191E2B` with red stripes, and neither colour is in the locked palette.
+The letterforms are unchanged. Only the fills are recoloured: Ink with Bronze stripes on light backgrounds,
+Bone with Sand stripes on dark ones. **Please confirm this adaptation, or send the official
+mono or one-colour versions of the logo if they exist.**
+
 ## Locked palette
 
 `#F5F2EC` Bone · `#191917` Ink · `#FFFFFF` White · `#171715` Carbon · `#77736C` Stone ·

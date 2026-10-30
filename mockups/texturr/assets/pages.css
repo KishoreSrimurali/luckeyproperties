@@ -16,6 +16,7 @@
 .hero h1 { margin: 22px 0 28px; max-width: 8.6em; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 36px; }
 .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 28px; }
+.hero .eyebrow { display: flex; align-items: center; gap: 12px; letter-spacing: 0.32em; }
 .hero-note .ic { width: 18px; height: 18px; color: var(--bronze); }
 
 /* Still-life scene: built from material swatches, lit from the upper left */
@@ -92,8 +93,7 @@
 }
 .tray > span { aspect-ratio: 3 / 4; border-radius: 1px; box-shadow: 0 8px 14px -6px rgba(23, 23, 21, 0.7); }
 .tray .tray-card { display: grid; place-content: center; justify-items: center; gap: 10px; background: var(--bone); color: var(--ink); text-align: center; }
-.tray .tray-card .wordmark { font-size: clamp(22px, 2.4vw, 34px); min-height: 0; }
-.tray .tray-card .wordmark em { color: var(--graphite); }
+.tray .tray-card img { width: 72%; height: auto; }
 .tray .tray-card small { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); }
 .how { overflow: hidden; }
 .tray .tray-empty { display: grid; place-items: center; border: 1px dashed var(--sand); box-shadow: none; color: var(--sand); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
@@ -437,3 +437,15 @@
 .sys-focus { outline: 2px solid var(--bronze); outline-offset: 0; border-color: var(--bronze); }
 .sys .comp-row .card-add { position: static; }
 .sys .card-add[aria-pressed="false"] { border-color: var(--mist); }
+
+/* ---------- Logo on system sheet ---------- */
+.logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.logo-tile { margin: 0; background: var(--bone); border: 1px solid var(--mist); padding: 64px 56px 20px; display: grid; gap: 40px; align-content: space-between; }
+.logo-tile.dark { background: var(--ink); border-color: var(--ink); }
+.logo-tile img { width: 100%; max-width: 440px; height: auto; margin: 0 auto; }
+.logo-tile--sm { padding-top: 40px; }
+.logo-tile figcaption { font-size: 13px; color: var(--graphite); }
+.logo-tile.dark figcaption { color: var(--sand); }
+.logo-device { display: flex; align-items: center; gap: 12px; letter-spacing: 0.32em; justify-content: center; }
+.sys code { font-family: "JetBrains Mono", monospace; font-size: 12px; }
+@media (max-width: 900px) { .logo-grid { grid-template-columns: 1fr; } .logo-tile { padding: 40px 24px 16px; } }

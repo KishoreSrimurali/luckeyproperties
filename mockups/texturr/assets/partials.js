@@ -34,7 +34,14 @@
     ["journal", "Journal", "#"],
   ];
   const cur = (k) => (k === page ? ' aria-current="page"' : "");
-  const wordmark = `<a class="wordmark" href="index.html" aria-label="Texturr home">Textu<em>rr</em></a>`;
+  // Logo artwork: traced from the supplied logo, recoloured to the locked palette.
+  // Standard = Ink + Bronze stripes (light grounds); reverse = Bone + Sand stripes (dark grounds).
+  const logo = (reverse, full) =>
+    `<img src="assets/brand/texturr-${full ? "logo" : "wordmark"}${reverse ? "-reverse" : ""}.svg" alt="" ` +
+    (full ? `width="624" height="144"` : `width="624" height="98"`) + `>`;
+  window.TexturrLogo = logo;
+  const wordmark = `<a class="wordmark" href="index.html" aria-label="Texturr home">${logo(false)}</a>`;
+  const wordmarkRev = `<a class="wordmark" href="index.html" aria-label="Texturr home">${logo(true)}</a>`;
 
   const header = `
     <a class="skip" href="#main">Skip to content</a>
@@ -52,7 +59,7 @@
       </div>
     </header>
     <div class="mnav dark" id="mnav" role="dialog" aria-modal="true" aria-label="Menu">
-      <div class="mnav-top">${wordmark}<button class="icon-btn" type="button" aria-label="Close menu">${icon("close")}</button></div>
+      <div class="mnav-top">${wordmarkRev}<button class="icon-btn" type="button" aria-label="Close menu">${icon("close")}</button></div>
       <ul>
         <li><a href="collection.html">Materials <small>9 finishes</small></a></li>
         <li><a href="#">Projects ${icon("arrow")}</a></li>
@@ -72,7 +79,7 @@
       <div class="wrap">
         <div class="footer-grid">
           <div>
-            <a class="wordmark" href="index.html" style="font-size:44px">Textu<em>rr</em></a>
+            <a class="footer-logo" href="index.html" aria-label="Texturr, Surface Evolution — home">${logo(true, true)}</a>
             <p class="lede" style="margin-top:20px;max-width:24em">Mineral surfaces, hand-finished in our studio and specified with you.</p>
             <form class="news" onsubmit="return false">
               <label class="sr-only" for="nl">Email address</label>
@@ -85,7 +92,7 @@
           <div><h2 class="foot-h">Studio</h2><ul><li><a href="#">Visit the studio</a></li><li><a href="#">Delivery &amp; returns</a></li><li><a href="#">Care guides</a></li><li><a href="#">Contact</a></li></ul></div>
         </div>
         <div class="footer-base">
-          <span>© 2026 Texturr Studio</span>
+          <span>© 2026 Texturr</span>
           <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></nav>
         </div>
       </div>
@@ -95,11 +102,14 @@
   const slimFooter = `
     <footer class="footer footer--slim dark">
       <div class="wrap footer-base">
-        <span>© 2026 Texturr Studio · Questions? 020 7946 0000</span>
+        <span>© 2026 Texturr · Questions? 020 7946 0000</span>
         <nav aria-label="Legal"><a href="#">Delivery</a><a href="#">Privacy</a><a href="#">Accessibility</a></nav>
       </div>
     </footer>`;
   document.querySelectorAll("[data-include=footer]").forEach((el) => (el.outerHTML = minimal ? slimFooter : footer));
+  // Brand device: the three speed stripes from the logo
+  document.querySelectorAll("i[data-stripes]").forEach((el) => (el.outerHTML =
+    `<svg class="stripes" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 0h13l1.6 2.2H1.6zM3.2 4.6h13l1.6 2.2H4.8zM6.4 9.2h13l1.6 2.2H8z"/></svg>`));
   document.querySelectorAll("i[data-icon]").forEach((el) => (el.outerHTML = icon(el.dataset.icon)));
 
   // Menu open/close with focus handoff

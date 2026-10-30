@@ -101,9 +101,12 @@ p { margin: 0; }
 /* ---------- Header ---------- */
 .header { position: sticky; top: 0; z-index: 40; background: var(--bone); border-bottom: 1px solid var(--mist); }
 .header .wrap { height: 76px; display: flex; align-items: center; gap: 40px; }
-.wordmark { font: 400 31px/1 var(--serif); letter-spacing: -0.02em; display: inline-flex; align-items: center; min-height: 44px; }
-.wordmark em { font-style: italic; color: var(--bronze); }
-.dark .wordmark em { color: var(--sand); }
+.wordmark { display: inline-flex; align-items: center; min-height: 44px; flex: none; }
+.wordmark img { height: 21px; width: auto; }
+.footer-logo { display: inline-block; }
+.footer-logo img { width: 232px; height: auto; }
+.stripes { display: inline-block; width: 26px; height: 12px; fill: var(--bronze); vertical-align: -1px; flex: none; }
+.dark .stripes { fill: var(--sand); }
 .nav { display: flex; gap: 32px; font-size: 14px; font-weight: 500; }
 .nav a { position: relative; display: inline-flex; align-items: center; min-height: 44px; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease); }
@@ -177,7 +180,7 @@ p { margin: 0; }
 }
 @media (max-width: 900px) {
   .header .wrap { height: 64px; gap: 8px; }
-  .wordmark { font-size: 27px; }
+  .wordmark img { height: 18px; }
   .nav, .header-actions .btn, .header-actions .search-btn { display: none; }
   .menu-btn { display: inline-grid; }
   .header-actions { margin-right: -10px; gap: 0; }
