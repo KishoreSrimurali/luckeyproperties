@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your sample box — Texturr</title>
+  <link rel="stylesheet" href="assets/texturr.css">
+  <link rel="stylesheet" href="assets/pages.css">
+</head>
+<body data-page="samples" data-samples="3" data-minimal>
+  <div data-include="header"></div>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="page-head checkout-head">
+        <h1 class="h2">Your sample <em>box</em></h1>
+      </header>
+
+      <div class="checkout">
+        <form class="checkout-form" novalidate onsubmit="return false">
+          <ol class="stepper" aria-label="Progress">
+            <li class="done">1. Choose finishes</li>
+            <li aria-current="step">2. Delivery</li>
+            <li>3. Confirm</li>
+          </ol>
+
+          <div class="form-block">
+            <h2>Where should we send them?</h2>
+            <div class="error-summary" role="alert" aria-labelledby="err-title">
+              <i data-icon="alert"></i>
+              <div><p id="err-title"><b>Check one detail</b></p><a class="u" href="#email">Enter an email address, like name@studio.com</a></div>
+            </div>
+            <div class="form-grid">
+              <div class="field"><label for="fn">First name</label><input class="input" id="fn" autocomplete="given-name" value="Ada"></div>
+              <div class="field"><label for="ln">Last name</label><input class="input" id="ln" autocomplete="family-name" value="Okafor"></div>
+              <div class="field field--error full">
+                <label for="email">Email</label>
+                <input class="input" id="email" type="email" autocomplete="email" value="ada.okafor@" aria-invalid="true" aria-describedby="email-err">
+                <p class="err" id="email-err"><i data-icon="alert"></i> Enter an email address, like name@studio.com</p>
+              </div>
+              <div class="field full">
+                <label for="pc">Postcode</label>
+                <div class="inline-action"><input class="input" id="pc" autocomplete="postal-code" value="E8 3RL"><button class="btn btn--ghost" type="button">Find address</button></div>
+              </div>
+              <div class="field full"><label for="a1">Address</label><input class="input" id="a1" autocomplete="address-line1" value="14 Mapledene Road"></div>
+              <div class="field"><label for="town">Town or city</label><input class="input" id="town" autocomplete="address-level2" value="London"></div>
+              <div class="field"><label for="tel">Phone <span class="hint">(optional, for delivery)</span></label><input class="input" id="tel" type="tel" autocomplete="tel" placeholder="07700 900000"></div>
+            </div>
+          </div>
+
+          <div class="form-block">
+            <h2>About your project <span class="opt-tag">Optional</span></h2>
+            <p class="meta block-intro">It helps us include the right fitting notes and suggest pairings. Skip it if you like.</p>
+            <fieldset class="radio-fieldset">
+              <legend class="sr-only">Project type</legend>
+              <div class="radio-cards">
+                <label class="radio-card"><input type="radio" name="pt" checked><b>Home renovation</b><span>Refreshing existing rooms</span></label>
+                <label class="radio-card"><input type="radio" name="pt"><b>New build</b><span>Specifying from plans</span></label>
+                <label class="radio-card"><input type="radio" name="pt"><b>Trade project</b><span>For a client</span></label>
+              </div>
+            </fieldset>
+            <div class="checks">
+              <label class="check"><input type="checkbox" checked> A surface consultant can call me to talk through my samples</label>
+              <label class="check"><input type="checkbox"> Send me material notes once a month. Unsubscribe any time.</label>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button class="btn" type="submit">Send my free samples <i data-icon="arrow"></i></button>
+            <p class="meta">No payment needed. Tracking by email within 48 hours.</p>
+          </div>
+        </form>
+
+        <aside class="summary" aria-labelledby="sum-title">
+          <h2 id="sum-title">In the box <small class="num">3 of 5</small></h2>
+          <a class="u summary-edit" href="collection.html">Edit</a>
+          <ul class="s-items">
+            <li><span class="thumb" data-swatch="statuario"></span><div><b>Statuario Bianco</b><span>Stone-look slab · Polished</span></div><button class="rm" type="button" aria-label="Remove Statuario Bianco">Remove</button></li>
+            <li><span class="thumb" data-swatch="breccia"></span><div><b>Breccia Grigio</b><span>Stone-look slab · Polished</span></div><button class="rm" type="button" aria-label="Remove Breccia Grigio">Remove</button></li>
+            <li><span class="thumb" data-swatch="calacatta"></span><div><b>Calacatta Oro</b><span>Stone-look slab · Polished</span></div><button class="rm" type="button" aria-label="Remove Calacatta Oro">Remove</button></li>
+            <li><span class="empty-thumb"><i data-icon="plus"></i></span><p class="add-more">Two more free. <a href="collection.html">Add a finish</a></p><span></span></li>
+          </ul>
+          <div class="totals">
+            <div><span>3 real samples, 300 × 300 mm</span><span class="num">Free</span></div>
+            <div><span>Delivery, 2 working days</span><span class="num">Free</span></div>
+            <div class="total"><span>Total</span><span class="num">£0.00</span></div>
+          </div>
+          <div class="pairing">
+            <span class="pair-swatch" data-swatch="oak-fluted" aria-hidden="true"></span>
+            <div><b>Pairs with your Calacatta Oro:</b> Fluted Smoked Oak, for warmth.<br><button class="rm pair-add" type="button">Add to box</button></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+  <script src="assets/partials.js"></script>
+  <script src="assets/catalog.js"></script>
+</body>
+</html>
