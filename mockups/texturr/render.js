@@ -66,7 +66,13 @@ const server = http.createServer((req, res) => {
   }
   // One-image presentation board of every desktop screen (built from the PNGs above)
   for (const [file, scale, type] of [["desktop-all-screens.png", 1, "png"], ["desktop-all-screens@2x.jpg", 2, "jpeg"]]) {
-    const p = await browser.newPage({ viewport: { width: 2480, height: 1000 }, deviceScaleFactor: scale });
+    // Measure the board first so the high-res copy stays under 8000 px (a common upload limit)
+    const probe = await browser.newPage({ viewport: { width: 2480, height: 1000 } });
+    await probe.goto(base + "tools/desktop-board.html", { waitUntil: "networkidle" });
+    const boardH = await probe.evaluate(() => document.documentElement.scrollHeight);
+    await probe.close();
+    const dsf = Math.min(scale, 7990 / boardH);
+    const p = await browser.newPage({ viewport: { width: 2480, height: 1000 }, deviceScaleFactor: dsf });
     await p.goto(base + "tools/desktop-board.html", { waitUntil: "networkidle" });
     await p.evaluate(() => document.fonts.ready);
     await p.screenshot({ path: path.join(OUT, file), fullPage: true, type, ...(type === "jpeg" ? { quality: 86 } : {}) });
