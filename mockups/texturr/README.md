@@ -3,14 +3,21 @@
 Four core screens plus a UI-system sheet, built responsively in HTML/CSS and rendered to PNG at
 **1440 px (desktop)** and **390 px (mobile)**.
 
-**Brief, as inferred from the supplied photography:** Texturr supplies architectural surfaces: large-format
-stone-look slabs, wood and fluted panels, metal profiles and lacquer, for commercial and residential interiors.
-The site's primary conversion is **five free samples**, and its secondary conversion is **a consultation or quote**.
-**Product names, prices, specifications and project captions are placeholders** for you to confirm.
+**Brief:** Texturr India (Galaxy Surfaces, Bengaluru) is a **B2B** supplier of architectural wall panels:
+the **Texturr ImpactShield Panel** (1100 × 2900 mm, 5/8 mm, B1 fire rating, ENF) and the **Texturr Fluted Panel**
+(nano bamboo, 3000 mm lengths, Hollow and Solid Grille profiles), in Metal (T-MAT), Wood (T-NAT), Solid (T-SOL),
+Stone (T-STN) and Cloth (T-PAT) series, plus aluminium wall-board profiles. **No prices are shown anywhere.**
+Conversions: **Request a quote**, **Request samples** and **Book a visit** to the Experience Center.
+
+**Source of truth:** product names, decor codes, specifications, company details and most imagery come from the
+four catalogues (Product, In-Stock Material, Flute, Aluminium Profile). Decor codes were matched to swatch images
+by eye against each catalogue page. The short "look" descriptions (for example "White marble, grey veining") are mine.
 
 ## Photography
 
-`tools/build_images.py` crops and resizes the supplied images into responsive WebP files in `assets/img/`
+`tools/build_catalogue_images.py` turns images extracted from the catalogue PDFs (see its header for the
+`pdfimages` commands) into decor swatches (`sw-<code>`) and room shots (`cat-*`). `tools/build_images.py`
+crops and resizes the separately supplied photos into responsive WebP files in `assets/img/`
 (2.2 MB in total, down from 7.3 MB of source JPEGs), with `srcset`, `sizes`, explicit dimensions and lazy loading
 below the fold. Run it against the folder of supplied `image_N.jpg` files to rebuild.
 `assets/catalog.js` holds each product's name, price, crop and alt text in one place.
@@ -18,8 +25,8 @@ below the fold. Run it against the folder of supplied `image_N.jpg` files to reb
 - Not used: `image_12` (duplicate of `image_9`), `image_15` (near-duplicate of `image_3`), and `image_1`/`image_16`
   (logo files; the site uses the traced vectors instead).
 - `image_4` is cropped to remove third-party "WELCOME / CASHIER" signage.
-- Only one Calacatta photo was supplied, so its product page uses two crops of `image_11`.
-  A dedicated close-up shot would strengthen it.
+- Two of the supplied photos (the champagne corridor and the marble reception) also appear in the product
+  catalogue as Texturr Metal and Stone Series installations.
 
 ## Screens (`png/`)
 
@@ -27,9 +34,9 @@ below the fold. Run it against the folder of supplied `image_N.jpg` files to reb
 | --- | --- | --- |
 | UI system: palette roles, type, components, materials, rules | `desktop-00-design-system.png` | — |
 | Home: photo hero with surface hotspots, collection, sampling, material study, projects | `desktop-01-home.png`, `desktop-01-home-fold.png` | `mobile-01-home.png`, `mobile-01-home-fold.png` |
-| Collection: filters, sample toggles, sticky sample bar | `desktop-02-collection.png` | `mobile-02-collection.png`, `mobile-02-collection-fold.png` |
-| Product (Calacatta Oro): gallery, colourway/finish, cost estimate | `desktop-03-product.png` | `mobile-03-product.png`, `mobile-03-product-fold.png` |
-| Sample box checkout: focused header, error state, summary | `desktop-04-sample-box.png` | `mobile-04-sample-box.png` |
+| In-stock finishes: 20 catalogue decors, series filters, sample-request bar | `desktop-02-collection.png` | `mobile-02-collection.png`, `mobile-02-collection-fold.png` |
+| Decor page (T-STN 8027): gallery, ImpactShield specification, catalogue downloads, quote and sample request | `desktop-03-product.png` | `mobile-03-product.png`, `mobile-03-product-fold.png` |
+| Sample request: details, project, sector, stage, delivery | `desktop-04-sample-box.png` | `mobile-04-sample-box.png` |
 | Mobile menu | — | `mobile-05-menu.png` |
 
 "Fold" shots show the first screen exactly as a visitor sees it, including sticky bars.
