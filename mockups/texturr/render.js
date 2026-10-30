@@ -50,16 +50,27 @@ const server = http.createServer((req, res) => {
       await p.evaluate(() => document.documentElement.classList.add("capture-full"));
       const h = await p.evaluate(() => document.documentElement.scrollHeight);
       await p.setViewportSize({ width, height: h });
-      // Lazy images below the fold load once the viewport covers them; wait until all have decoded
-      await p.evaluate(() => Promise.all([...document.images].filter((i) => i.getClientRects().length) // hidden lazy images never load
-        .map((i) => i.complete ? 1 : Promise.race([new Promise((r) => (i.onload = i.onerror = r)), new Promise((r) => setTimeout(r, 4000))]))));
+      // Force every lazy image to load, then wait for each to decode (capped so a bad file cannot hang the run)
+      await p.evaluate(() => Promise.all([...document.images].map((i) => {
+        i.loading = "eager";
+        return Promise.race([i.decode().catch(() => {}), new Promise((r) => setTimeout(r, 8000))]);
+      })));
       await p.waitForTimeout(200);
     }
     // Fail loudly on any image that did not decode (e.g. a wrong MIME type on the logo SVG)
-    const broken = await p.evaluate(() => [...document.images].filter((i) => i.getClientRects().length && i.complete && !i.naturalWidth).map((i) => i.src));
+    const broken = full ? await p.evaluate(() => [...document.images].filter((i) => i.getClientRects().length && !i.naturalWidth).map((i) => i.src)) : [];
     if (broken.length) throw new Error(`${name}: broken images ${broken.join(", ")}`);
     await p.screenshot({ path: path.join(OUT, `${name}.png`) });
     console.log("✓", name);
+    await p.close();
+  }
+  // One-image presentation board of every desktop screen (built from the PNGs above)
+  for (const [file, scale, type] of [["desktop-all-screens.png", 1, "png"], ["desktop-all-screens@2x.jpg", 2, "jpeg"]]) {
+    const p = await browser.newPage({ viewport: { width: 2480, height: 1000 }, deviceScaleFactor: scale });
+    await p.goto(base + "tools/desktop-board.html", { waitUntil: "networkidle" });
+    await p.evaluate(() => document.fonts.ready);
+    await p.screenshot({ path: path.join(OUT, file), fullPage: true, type, ...(type === "jpeg" ? { quality: 86 } : {}) });
+    console.log("✓", file);
     await p.close();
   }
   await browser.close();

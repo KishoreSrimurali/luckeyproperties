@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Texturr — Desktop UI board</title>
+  <!-- Presentation board of all desktop screens. Captured by render.js as png/desktop-all-screens.* -->
+  <style>
+    @font-face { font-family: "Inter"; src: url("../fonts/Inter-Variable.woff2") format("woff2"); font-weight: 300 600; }
+    :root { --white: #FFFFFF; --ink: #111827; --ink-2: rgba(17, 24, 39, 0.72); --tint: #F3F4F5; --line: rgba(17, 24, 39, 0.14); }
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 2480px; background: var(--tint); color: var(--ink); font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased; }
+    header { display: flex; align-items: flex-end; justify-content: space-between; padding: 88px 96px 64px; border-bottom: 1px solid var(--line); background: var(--white); }
+    header img { height: 64px; width: auto; display: block; }
+    header .meta { text-align: right; font-size: 22px; line-height: 1.5; color: var(--ink-2); }
+    header .meta b { display: block; font-size: 30px; font-weight: 500; color: var(--ink); letter-spacing: -0.02em; }
+    .board { display: grid; grid-template-columns: repeat(3, 720px); gap: 64px; padding: 72px 96px 96px; align-items: start; }
+    .col { display: grid; gap: 64px; }
+    figure { margin: 0; }
+    figcaption { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
+    figcaption span { font-size: 15px; font-weight: 600; letter-spacing: 0.12em; color: var(--ink-2); }
+    figcaption small { margin-left: auto; font-size: 16px; font-weight: 400; color: var(--ink-2); }
+    .shot { display: block; width: 720px; height: auto; background: var(--white); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px rgba(17, 24, 39, 0.35); }
+    footer { padding: 0 96px 72px; font-size: 16px; color: var(--ink-2); }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="../assets/brand/texturr-logo.svg" alt="Texturr, Surface Evolution">
+    <div class="meta"><b>Desktop UI</b>Five screens at 1440 px, shown at 50%</div>
+  </header>
+  <main class="board">
+    <div class="col">
+      <figure><figcaption><span>01</span>Home<small>Hero, collection, sampling, projects</small></figcaption><img class="shot" src="../png/desktop-01-home.png" alt=""></figure>
+    </div>
+    <div class="col">
+      <figure><figcaption><span>02</span>Collection<small>Filters and sample toggles</small></figcaption><img class="shot" src="../png/desktop-02-collection.png" alt=""></figure>
+      <figure><figcaption><span>03</span>Product<small>Calacatta Oro</small></figcaption><img class="shot" src="../png/desktop-03-product.png" alt=""></figure>
+    </div>
+    <div class="col">
+      <figure><figcaption><span>04</span>Sample box<small>Checkout</small></figcaption><img class="shot" src="../png/desktop-04-sample-box.png" alt=""></figure>
+      <figure><figcaption><span>05</span>Design system<small>Colour, type, components</small></figcaption><img class="shot" src="../png/desktop-00-design-system.png" alt=""></figure>
+    </div>
+  </main>
+  <footer>White #FFFFFF and #111827 · Inter · Logo red #EC2227 in the logo only</footer>
+</body>
+</html>
