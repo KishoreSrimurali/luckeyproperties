@@ -63,6 +63,22 @@ so no third hue appears:
 
 The logo's red `#EC2227` appears **only in the logo stripes**, never in the UI.
 
+## Deploy on Vercel
+
+This folder is a self-contained static site. The repository root is a different app (the LUCKEY Properties
+Next.js site), so deploying from the root will never serve Texturr. In the Vercel project:
+
+1. **Settings → Build & Deployment → Root Directory:** `mockups/texturr`
+2. **Framework Preset:** Other. `vercel.json` already sets `"framework": null`, which overrides the preset.
+   Leave the Build Command and Output Directory empty.
+3. **Branch:** this site exists only on `claude/texturr-design-review-lj8thi`. Either set
+   **Settings → Git → Production Branch** to that branch, or merge it into your default branch.
+4. Redeploy.
+
+`vercel.json` turns on clean URLs (`/collection` instead of `/collection.html`) and caches assets.
+`.vercelignore` keeps the mockup PNGs and tooling out of the deployment, and `404.html` is the branded
+not-found page.
+
 ## Run / re-render
 
 ```
