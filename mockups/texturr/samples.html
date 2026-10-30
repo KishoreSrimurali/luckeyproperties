@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="assets/texturr.css">
   <link rel="stylesheet" href="assets/pages.css">
 </head>
-<body data-page="samples" data-samples="3" data-minimal>
+<body data-page="samples" data-minimal data-inbox="t-stn-8027,t-nat-7004,t-mat-1701">
   <div data-include="header"></div>
 
   <main id="main">
@@ -18,95 +18,92 @@
       </header>
 
       <div class="checkout">
-        <form class="checkout-form" novalidate onsubmit="return false">
-          <ol class="stepper" aria-label="Progress">
-            <li class="done">1. Choose finishes</li>
-            <li aria-current="step">2. Project details</li>
-            <li>3. Confirm</li>
-          </ol>
+        <div>
+          <form class="checkout-form" novalidate data-enquiry="samples">
+            <ol class="stepper" aria-label="Progress">
+              <li class="done">1. Choose finishes</li>
+              <li aria-current="step">2. Project details</li>
+              <li>3. Send</li>
+            </ol>
 
-          <div class="form-block">
-            <h2>Your details</h2>
-            <div class="error-summary" role="alert" aria-labelledby="err-title">
-              <i data-icon="alert"></i>
-              <div><p id="err-title"><b>Check one detail</b></p><a class="u" href="#email">Enter a work email address, like name@studio.com</a></div>
+            <div class="error-summary" role="alert" tabindex="-1" hidden>
+              <p><b>Check these details</b></p>
+              <ul></ul>
             </div>
-            <div class="form-grid">
-              <div class="field"><label for="fn">First name</label><input class="input" id="fn" autocomplete="given-name" value="Ananya"></div>
-              <div class="field"><label for="ln">Last name</label><input class="input" id="ln" autocomplete="family-name" value="Rao"></div>
-              <div class="field field--error full">
-                <label for="email">Work email</label>
-                <input class="input" id="email" type="email" autocomplete="work email" value="ananya.rao@" aria-invalid="true" aria-describedby="email-err">
-                <p class="err" id="email-err"><i data-icon="alert"></i> Enter a work email address, like name@studio.com</p>
+
+            <div class="form-block">
+              <h2>Your details</h2>
+              <div class="form-grid">
+                <div class="field"><label for="fn">First name</label><input class="input" id="fn" autocomplete="given-name" required data-mail="First name"></div>
+                <div class="field"><label for="ln">Last name</label><input class="input" id="ln" autocomplete="family-name" required data-mail="Last name"></div>
+                <div class="field full"><label for="email">Work email</label><input class="input" id="email" type="email" autocomplete="work email" required placeholder="name@studio.com" data-mail="Email"></div>
+                <div class="field"><label for="co">Company</label><input class="input" id="co" autocomplete="organization" required data-mail="Company"></div>
+                <div class="field"><label for="role">Role</label>
+                  <select class="select input" id="role" data-mail="Role"><option>Architect</option><option>Interior designer</option><option>Contractor</option><option>Developer</option><option>Other</option></select></div>
+                <div class="field full"><label for="tel">Phone <span class="hint">(for delivery questions)</span></label><input class="input" id="tel" type="tel" autocomplete="work tel" placeholder="+91 98450 00000" data-mail="Phone"></div>
               </div>
-              <div class="field"><label for="co">Company</label><input class="input" id="co" autocomplete="organization" value="Rao Design Studio"></div>
-              <div class="field"><label for="role">Role</label>
-                <select class="select input" id="role"><option>Architect</option><option selected>Interior designer</option><option>Contractor</option><option>Developer</option><option>Other</option></select></div>
-              <div class="field full"><label for="tel">Phone <span class="hint">(for delivery and project questions)</span></label><input class="input" id="tel" type="tel" autocomplete="work tel" placeholder="+91 98450 00000"></div>
             </div>
-          </div>
 
-          <div class="form-block">
-            <h2>Project</h2>
-            <div class="form-grid">
-              <div class="field full"><label for="pn">Project name</label><input class="input" id="pn" value="Lakeside Hotel, lobby and guest floors"></div>
-            </div>
-            <fieldset class="radio-fieldset">
-              <legend class="field-legend">Sector</legend>
-              <div class="radio-cards radio-cards--4">
-                <label class="radio-card"><input type="radio" name="sector" checked><b>Hospitality</b><span>Hotels, restaurants</span></label>
-                <label class="radio-card"><input type="radio" name="sector"><b>Commercial</b><span>Offices, retail</span></label>
-                <label class="radio-card"><input type="radio" name="sector"><b>Residential</b><span>Homes, developments</span></label>
-                <label class="radio-card"><input type="radio" name="sector"><b>Industrial</b><span>Facilities</span></label>
+            <div class="form-block">
+              <h2>Project</h2>
+              <div class="form-grid">
+                <div class="field full"><label for="pn">Project name</label><input class="input" id="pn" required placeholder="e.g. Lakeside Hotel, lobby and guest floors" data-mail="Project"></div>
               </div>
-            </fieldset>
-            <div class="form-grid" style="margin-top:22px">
-              <div class="field"><label for="stage">Project stage</label>
-                <select class="select input" id="stage"><option>Concept</option><option selected>Specification</option><option>Tender</option><option>On site</option></select></div>
-              <div class="field"><label for="area">Estimated wall area <span class="hint">(sq ft, optional)</span></label><input class="input num" id="area" inputmode="numeric" value="9,000"></div>
-              <div class="field full"><label for="loc">Project location</label><input class="input" id="loc" value="Bengaluru, Karnataka"></div>
-            </div>
-          </div>
-
-          <div class="form-block">
-            <h2>Delivery address</h2>
-            <div class="form-grid">
-              <div class="field full">
-                <label for="pc">PIN code</label>
-                <div class="inline-action"><input class="input" id="pc" autocomplete="postal-code" value="560025"><button class="btn btn--ghost" type="button">Find address</button></div>
+              <fieldset class="radio-fieldset">
+                <legend class="field-legend">Sector</legend>
+                <div class="radio-cards radio-cards--4">
+                  <label class="radio-card"><input type="radio" name="sector" value="Hospitality" checked data-mail="Sector"><b>Hospitality</b><span>Hotels, restaurants</span></label>
+                  <label class="radio-card"><input type="radio" name="sector" value="Commercial"><b>Commercial</b><span>Offices, retail</span></label>
+                  <label class="radio-card"><input type="radio" name="sector" value="Residential"><b>Residential</b><span>Homes, developments</span></label>
+                  <label class="radio-card"><input type="radio" name="sector" value="Industrial"><b>Industrial</b><span>Facilities</span></label>
+                </div>
+              </fieldset>
+              <div class="form-grid" style="margin-top:22px">
+                <div class="field"><label for="stage">Project stage</label>
+                  <select class="select input" id="stage" data-mail="Stage"><option>Concept</option><option selected>Specification</option><option>Tender</option><option>On site</option></select></div>
+                <div class="field"><label for="area">Estimated wall area <span class="hint">(sq ft, optional)</span></label><input class="input num" id="area" inputmode="numeric" data-mail="Wall area (sq ft)"></div>
+                <div class="field full"><label for="loc">Project location</label><input class="input" id="loc" required placeholder="City, state" data-mail="Location"></div>
               </div>
-              <div class="field full"><label for="a1">Address</label><input class="input" id="a1" autocomplete="address-line1" value="Rao Design Studio, 2nd floor, 14 Lavelle Road"></div>
-              <div class="field"><label for="town">Town or city</label><input class="input" id="town" autocomplete="address-level2" value="Bengaluru"></div>
             </div>
-            <div class="checks">
-              <label class="check"><input type="checkbox" checked> A specification consultant can contact me about this project</label>
-              <label class="check"><input type="checkbox"> Send me project news for specifiers. Unsubscribe any time.</label>
-            </div>
-          </div>
 
-          <div class="submit-row">
-            <button class="btn" type="submit">Send sample request <i data-icon="arrow"></i></button>
-            <p class="meta">Our team will confirm your samples by email. Need pricing too? <a class="u" href="#">Request a quote</a></p>
+            <div class="form-block">
+              <h2>Delivery address</h2>
+              <div class="form-grid">
+                <div class="field full"><label for="a1">Address</label><input class="input" id="a1" autocomplete="street-address" required data-mail="Delivery address"></div>
+                <div class="field"><label for="town">City</label><input class="input" id="town" autocomplete="address-level2" required data-mail="City"></div>
+                <div class="field"><label for="pc">PIN code</label><input class="input num" id="pc" autocomplete="postal-code" inputmode="numeric" required pattern="[1-9][0-9]{5}" data-pattern-msg="Enter a 6-digit PIN code, like 560004" data-mail="PIN code"></div>
+              </div>
+              <div class="checks">
+                <label class="check"><input type="checkbox" checked data-mail="Happy to be contacted about the project"> A Texturr consultant can contact me about this project</label>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn" type="submit">Send sample request <i data-icon="arrow"></i></button>
+              <p class="meta">Opens your email app with the request ready to send to info@texturr.com.</p>
+            </div>
+          </form>
+
+          <div class="done-panel" data-done tabindex="-1" hidden>
+            <span class="ic-big"><i data-icon="check"></i></span>
+            <h2 class="h3">Your sample request is ready to send</h2>
+            <p class="lede">We’ve opened your email app with the request addressed to info@texturr.com. Press send there, and our team will confirm your samples.</p>
+            <p class="meta">Nothing opened? <a class="u" data-bind="done-mail" href="mailto:info@texturr.com">Open the email again</a>, or call <a class="u" href="tel:+919916089900">+91 99160 89900</a>.</p>
+            <button class="btn btn--ghost" type="button" data-new-request>Start a new sample request</button>
           </div>
-        </form>
+        </div>
 
         <aside class="summary" aria-labelledby="sum-title">
-          <h2 id="sum-title">In the request <small class="num">3 finishes</small></h2>
+          <h2 id="sum-title">In the request <small class="num" data-bind="request-count">0 finishes</small></h2>
           <a class="u summary-edit" href="collection.html">Edit</a>
-          <ul class="s-items">
-            <li><span class="thumb" data-swatch="t-stn-8027"></span><div><b>T-STN 8027</b><span>Stone Series · ImpactShield</span></div><button class="rm" type="button" aria-label="Remove T-STN 8027">Remove</button></li>
-            <li><span class="thumb" data-swatch="t-nat-7004"></span><div><b>T-NAT 7004</b><span>Wood Series · Fluted</span></div><button class="rm" type="button" aria-label="Remove T-NAT 7004">Remove</button></li>
-            <li><span class="thumb" data-swatch="t-mat-1701"></span><div><b>T-MAT 1701</b><span>Metal Series · ImpactShield</span></div><button class="rm" type="button" aria-label="Remove T-MAT 1701">Remove</button></li>
-            <li><span class="empty-thumb"><i data-icon="plus"></i></span><p class="add-more"><a href="collection.html">Add another finish</a></p><span></span></li>
-          </ul>
+          <ul class="s-items" data-request-list></ul>
           <div class="totals">
-            <div><span>Finishes</span><span class="num">3, all in stock</span></div>
-            <div><span>Delivery</span><span>Confirmed by email</span></div>
+            <div><span>Availability</span><span>All in stock</span></div>
             <div class="total"><span>Included</span><span>Product catalogue</span></div>
           </div>
-          <div class="pairing">
-            <span class="pair-swatch" data-swatch="t-sol-2016" aria-hidden="true"></span>
-            <div><b>Pairs with T-STN 8027:</b> T-SOL 2016, a sand beige Solid Series decor.<br><button class="rm pair-add" type="button">Add to request</button></div>
+          <div class="pairing" data-pairing hidden>
+            <span class="pair-swatch" data-bind="pair-swatch" aria-hidden="true"></span>
+            <div><span data-bind="pair-text"></span><br><button class="rm pair-add" type="button" data-bind="pair-add" data-sample="">Add to request</button></div>
           </div>
         </aside>
       </div>
@@ -116,5 +113,6 @@
   <div data-include="footer"></div>
   <script src="assets/partials.js"></script>
   <script src="assets/catalog.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>

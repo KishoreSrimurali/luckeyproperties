@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a quote — Texturr</title>
+  <meta name="description" content="Ask Texturr for a project quote, book a visit to the Experience Center in Bengaluru, or ask a technical question.">
+  <link rel="stylesheet" href="assets/texturr.css">
+  <link rel="stylesheet" href="assets/pages.css">
+</head>
+<body data-page="quote" data-inbox="t-stn-8027,t-nat-7004">
+  <div data-include="header"></div>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="page-head checkout-head">
+        <h1 class="h2">Request a <em>quote</em></h1>
+        <p class="lede">Tell us about your project and our team will recommend the right Texturr panels and finishes, with pricing for your quantities. You can also book a visit to our Experience Center in Bengaluru.</p>
+      </header>
+
+      <div class="checkout">
+        <div>
+          <form class="checkout-form" novalidate data-enquiry="quote">
+            <div class="error-summary" role="alert" tabindex="-1" hidden>
+              <p><b>Check these details</b></p>
+              <ul></ul>
+            </div>
+
+            <div class="form-block">
+              <h2>How can we help?</h2>
+              <fieldset class="radio-fieldset">
+                <legend class="sr-only">Topic</legend>
+                <div class="radio-cards">
+                  <label class="radio-card"><input type="radio" name="topic" value="Project quote" data-topic="quote" checked data-mail="Topic"><b>Project quote</b><span>Pricing for your quantities</span></label>
+                  <label class="radio-card"><input type="radio" name="topic" value="Experience Center visit" data-topic="visit"><b>Book a visit</b><span>See every series in Bengaluru</span></label>
+                  <label class="radio-card"><input type="radio" name="topic" value="Technical question" data-topic="technical"><b>Technical question</b><span>Panels, profiles, installation</span></label>
+                </div>
+              </fieldset>
+              <div class="interest" data-interest hidden>
+                <p class="field-legend">Finishes of interest <span class="req">(from your sample request)</span></p>
+                <ul></ul>
+              </div>
+            </div>
+
+            <div class="form-block">
+              <h2>Your details</h2>
+              <div class="form-grid">
+                <div class="field"><label for="fn">First name</label><input class="input" id="fn" autocomplete="given-name" required data-mail="First name"></div>
+                <div class="field"><label for="ln">Last name</label><input class="input" id="ln" autocomplete="family-name" required data-mail="Last name"></div>
+                <div class="field"><label for="email">Work email</label><input class="input" id="email" type="email" autocomplete="work email" required placeholder="name@studio.com" data-mail="Email"></div>
+                <div class="field"><label for="tel">Phone</label><input class="input" id="tel" type="tel" autocomplete="work tel" required placeholder="+91 98450 00000" data-mail="Phone"></div>
+                <div class="field"><label for="co">Company</label><input class="input" id="co" autocomplete="organization" required data-mail="Company"></div>
+                <div class="field"><label for="role">Role</label>
+                  <select class="select input" id="role" data-mail="Role"><option>Architect</option><option>Interior designer</option><option>Contractor</option><option>Developer</option><option>Other</option></select></div>
+              </div>
+            </div>
+
+            <div class="form-block">
+              <h2>Project <span class="opt-tag">Optional</span></h2>
+              <div class="form-grid">
+                <div class="field full"><label for="pn">Project name</label><input class="input" id="pn" data-mail="Project"></div>
+                <div class="field"><label for="loc">Location</label><input class="input" id="loc" placeholder="City, state" data-mail="Location"></div>
+                <div class="field"><label for="area">Estimated wall area <span class="hint">(sq ft)</span></label><input class="input num" id="area" inputmode="numeric" data-mail="Wall area (sq ft)"></div>
+                <div class="field full"><label for="msg">Message</label><textarea class="input" id="msg" placeholder="Panel system, decors, quantities, timeline or the date you’d like to visit" data-mail="Message"></textarea></div>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn" type="submit">Send enquiry <i data-icon="arrow"></i></button>
+              <p class="meta">Opens your email app with the enquiry ready to send to info@texturr.com.</p>
+            </div>
+          </form>
+
+          <div class="done-panel" data-done tabindex="-1" hidden>
+            <span class="ic-big"><i data-icon="check"></i></span>
+            <h2 class="h3">Your enquiry is ready to send</h2>
+            <p class="lede">We’ve opened your email app with the enquiry addressed to info@texturr.com. Press send there, and our team will get back to you.</p>
+            <p class="meta">Nothing opened? <a class="u" data-bind="done-mail" href="mailto:info@texturr.com">Open the email again</a>, or call <a class="u" href="tel:+919916089900">+91 99160 89900</a>.</p>
+            <a class="btn btn--ghost" href="collection.html">Browse in-stock finishes</a>
+          </div>
+        </div>
+
+        <aside class="summary contact-card" aria-labelledby="contact-title">
+          <h2 id="contact-title">Talk to us directly</h2>
+          <address class="contact-addr">Galaxy Surfaces<br># 168, 3rd Floor, Arasoji Rao Building<br>R V Road, Near Minerva Circle<br>Bengaluru 560004</address>
+          <p class="visit-contact"><a href="tel:+919916089900">+91 99160 89900</a><a href="mailto:info@texturr.com">info@texturr.com</a></p>
+          <ul class="contact-downloads">
+            <li><a class="u" href="assets/downloads/texturr-product-catalogue.pdf">Product catalogue (PDF, 8.7 MB)</a></li>
+            <li><a class="u" href="assets/downloads/texturr-in-stock-catalogue.pdf">In-stock catalogue (PDF, 3.2 MB)</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+  <script src="assets/partials.js"></script>
+  <script src="assets/catalog.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

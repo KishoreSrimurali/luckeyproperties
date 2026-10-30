@@ -37,6 +37,7 @@ below the fold. Run it against the folder of supplied `image_N.jpg` files to reb
 | In-stock finishes: 20 catalogue decors, series filters, sample-request bar | `desktop-02-collection.png` | `mobile-02-collection.png`, `mobile-02-collection-fold.png` |
 | Decor page (T-STN 8027): gallery, ImpactShield specification, catalogue downloads, quote and sample request | `desktop-03-product.png` | `mobile-03-product.png`, `mobile-03-product-fold.png` |
 | Sample request: details, project, sector, stage, delivery | `desktop-04-sample-box.png` | `mobile-04-sample-box.png` |
+| Request a quote / book a visit | `desktop-05-quote.png` | `mobile-06-quote.png` |
 | Mobile menu | — | `mobile-05-menu.png` |
 
 "Fold" shots show the first screen exactly as a visitor sees it, including sticky bars.
@@ -69,6 +70,34 @@ so no third hue appears:
 | `--on-dark-2` | White at 72% | Secondary text on `#111827` (≈9.9:1) |
 
 The logo's red `#EC2227` appears **only in the logo stripes**, never in the UI.
+
+## How the site works
+
+It is a static site, so there is no server or database. Everything interactive runs in the browser:
+
+- **Sample request:** "Sample" buttons add or remove a decor. The selection is saved in the visitor's browser
+  (localStorage), so it follows them between pages. The header badge, the finishes sample bar and the request
+  page update live.
+- **Finishes:** the series chips and checkboxes, the search box (code or look) and sorting all work, and the
+  filter is kept in the URL (`collection.html?series=wood`).
+- **Decor pages:** every decor has its own page, `product.html?d=<code>`, for example `?d=t-nat-7004`.
+- **Forms** (`samples.html`, `quote.html`): they check required fields, email format and the 6-digit PIN code,
+  then open the visitor's email app with the enquiry addressed to **info@texturr.com**, and show a confirmation.
+  `quote.html?topic=visit` preselects "Book a visit".
+- **Downloads:** the four catalogue PDFs are served from `assets/downloads/`.
+
+### Receiving forms without the visitor's email app
+
+The forms currently hand off to the visitor's own email app (`mailto:`). To receive submissions directly,
+connect a form service such as Formspree or Web3Forms, then change the submit step in `assets/app.js`
+(the "Compose the email" block) to `fetch()` the service's endpoint.
+
+### Editing content
+
+- **Decors:** edit the list at the top of `assets/catalog.js` (code, series, look). Each decor needs
+  `assets/img/sw-<code>-360.webp` and `-500.webp`. `tools/build_catalogue_images.py` makes these.
+- **Text, links and contact details:** edit the HTML pages. The header, menu and footer live in `assets/partials.js`.
+- **Screenshots:** `node render.js` (it uses `?demo=1` so the sample request is pre-filled).
 
 ## Deploy on Vercel
 

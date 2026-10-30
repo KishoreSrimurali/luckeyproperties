@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="assets/texturr.css">
   <link rel="stylesheet" href="assets/pages.css">
 </head>
-<body data-page="materials" data-samples="2" data-inbox="t-stn-8027,t-nat-7004">
+<body data-page="materials" data-inbox="t-stn-8027,t-nat-7004">
   <div data-include="header"></div>
 
   <main id="main">
@@ -24,56 +24,54 @@
 
       <div class="toolbar">
         <div class="chips" role="group" aria-label="Series">
-          <button class="chip" type="button" aria-pressed="true">All</button>
-          <button class="chip" type="button" aria-pressed="false">Metal</button>
-          <button class="chip" type="button" aria-pressed="false">Wood</button>
-          <button class="chip" type="button" aria-pressed="false">Solid</button>
-          <button class="chip" type="button" aria-pressed="false">Stone</button>
-          <button class="chip" type="button" aria-pressed="false">Cloth</button>
+          <button class="chip" type="button" data-series-chip="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-series-chip="metal" aria-pressed="false">Metal</button>
+          <button class="chip" type="button" data-series-chip="wood" aria-pressed="false">Wood</button>
+          <button class="chip" type="button" data-series-chip="solid" aria-pressed="false">Solid</button>
+          <button class="chip" type="button" data-series-chip="stone" aria-pressed="false">Stone</button>
+          <button class="chip" type="button" data-series-chip="cloth" aria-pressed="false">Cloth</button>
         </div>
         <div class="toolbar-right">
-          <span class="num" role="status">20 finishes shown</span>
+          <span class="num" role="status" data-result-count>20 finishes shown</span>
           <label class="sr-only" for="sort">Sort by</label>
-          <select class="sort" id="sort"><option>Sort: Series</option><option>Code, A–Z</option></select>
+          <select class="sort" id="sort"><option value="series">Sort: Series</option><option value="code">Code, A–Z</option></select>
         </div>
       </div>
 
       <div class="shop">
         <aside class="filters" aria-label="Filters">
+          <div class="field search-field">
+            <label for="search">Search by code or look</label>
+            <input class="input" id="search" type="search" placeholder="e.g. 8027 or marble" autocomplete="off">
+          </div>
           <fieldset>
             <legend>Series</legend>
-            <label class="check"><input type="checkbox"> Metal <span class="count num">6</span></label>
-            <label class="check"><input type="checkbox"> Wood <span class="count num">4</span></label>
-            <label class="check"><input type="checkbox"> Solid <span class="count num">3</span></label>
-            <label class="check"><input type="checkbox"> Stone <span class="count num">5</span></label>
-            <label class="check"><input type="checkbox"> Cloth <span class="count num">2</span></label>
+            <label class="check"><input type="checkbox" value="metal" data-series-check> Metal <span class="count num">6</span></label>
+            <label class="check"><input type="checkbox" value="wood" data-series-check> Wood <span class="count num">4</span></label>
+            <label class="check"><input type="checkbox" value="solid" data-series-check> Solid <span class="count num">3</span></label>
+            <label class="check"><input type="checkbox" value="stone" data-series-check> Stone <span class="count num">5</span></label>
+            <label class="check"><input type="checkbox" value="cloth" data-series-check> Cloth <span class="count num">2</span></label>
           </fieldset>
-          <fieldset>
-            <legend>Panel system</legend>
-            <label class="check"><input type="checkbox" checked> ImpactShield Panel <span class="count num">20</span></label>
-            <label class="check"><input type="checkbox"> Fluted Panel <span class="count num">20</span></label>
-          </fieldset>
-          <fieldset>
-            <legend>Availability</legend>
-            <label class="check"><input type="checkbox" checked> In stock <span class="count num">20</span></label>
-            <label class="check"><input type="checkbox"> Limited stock <span class="count num">0</span></label>
-          </fieldset>
-          <a class="link" href="#">Download the in-stock catalogue <i data-icon="arrow"></i></a>
+          <p class="meta filters-note">Every decor here is in stock and available on ImpactShield and Fluted panels.</p>
+          <a class="link" href="assets/downloads/texturr-in-stock-catalogue.pdf">In-stock catalogue (PDF, 3.2 MB) <i data-icon="arrow"></i></a>
+          <a class="link" href="assets/downloads/texturr-product-catalogue.pdf">Full product catalogue (PDF, 8.7 MB) <i data-icon="arrow"></i></a>
         </aside>
 
         <div>
-        <h2 class="sr-only">In-stock finishes</h2>
-        <div class="grid4" data-cards="t-stn-8027,t-stn-8070,t-stn-8001,t-stn-4018,t-stn-4039,t-nat-7004,t-nat-7041,t-nat-7032,t-nat-80045,t-mat-1701,t-mat-1703,t-mat-1705,t-mat-1734,t-mat-1903,t-mat-26701,t-sol-2016,t-sol-2063,t-sol-30031,t-pat-5003,t-pat-5078"></div>
+          <h2 class="sr-only">In-stock finishes</h2>
+          <div class="grid4" data-finder></div>
+          <div class="empty-state" data-empty hidden>
+            <p><b>No finishes match.</b> Try another code or series, or see the full range in the product catalogue.</p>
+            <button class="btn btn--ghost" type="button" data-clear-filters>Clear search and filters</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <aside class="sample-bar dark" aria-label="Sample request">
+    <aside class="sample-bar dark" aria-label="Sample request" hidden>
       <div class="wrap">
-        <div class="sb-slots" aria-hidden="true">
-          <span data-swatch="t-stn-8027"></span><span data-swatch="t-nat-7004"></span>
-        </div>
-        <p class="sb-text"><b class="num">2 surfaces<span class="sb-long"> in your sample request</span></b><span>From the in-stock range</span></p>
+        <div class="sb-slots" aria-hidden="true"></div>
+        <p class="sb-text"><b class="num"><span class="sb-count">0 finishes</span><span class="sb-long"> in your sample request</span></b><span>From the in-stock range</span></p>
         <a class="btn btn--light" href="samples.html"><span>Review<span class="sb-long"> request</span></span> <i data-icon="arrow"></i></a>
       </div>
     </aside>
@@ -82,5 +80,6 @@
   <div data-include="footer"></div>
   <script src="assets/partials.js"></script>
   <script src="assets/catalog.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>

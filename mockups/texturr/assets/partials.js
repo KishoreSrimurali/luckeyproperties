@@ -1,6 +1,6 @@
-/* Shared chrome for the Texturr mockups: icons, header, mobile menu, footer.
-   <body data-page="materials" data-samples="2"> sets the current nav item and sample count.
-   ?menu=open opens the mobile menu (used for the menu screenshot). */
+/* Shared chrome for the Texturr site: icons, sample-request store, header, mobile menu, footer.
+   <body data-page="materials"> sets the current nav item.
+   ?menu=open opens the mobile menu, and ?demo=1 seeds the sample request from <body data-inbox> (both for screenshots). */
 (function () {
   const ICONS = {
     search: '<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>',
@@ -25,13 +25,36 @@
 
   const body = document.body;
   const page = body.dataset.page || "";
-  const count = +(body.dataset.samples || 0);
+  const params = new URLSearchParams(location.search);
+
+  // Sample request store: decor keys saved in localStorage so the selection follows the visitor between pages.
+  // Storage can be unavailable (private mode, blocked cookies); the selection then lasts for the page view only.
+  const KEY = "texturr-samples";
+  const demo = params.get("demo") === "1";
+  let memory = demo ? (body.dataset.inbox || "").split(",").filter(Boolean) : [];
+  const read = () => {
+    if (demo) return memory.slice();
+    try { return JSON.parse(localStorage.getItem(KEY) || "[]").filter((k) => typeof k === "string"); } catch { return memory.slice(); }
+  };
+  const write = (list) => {
+    memory = list.slice();
+    if (!demo) { try { localStorage.setItem(KEY, JSON.stringify(list)); } catch { /* keep in memory */ } }
+    document.dispatchEvent(new CustomEvent("samples:change", { detail: list.slice() }));
+  };
+  window.TexturrSamples = {
+    list: read,
+    has: (k) => read().includes(k),
+    toggle(k) { const l = read(); const i = l.indexOf(k); i < 0 ? l.push(k) : l.splice(i, 1); write(l); return i < 0; },
+    remove(k) { write(read().filter((x) => x !== k)); },
+    clear() { write([]); },
+  };
+  const count = read().length;
   const minimal = "minimal" in body.dataset; // sample request form: no nav, one way out
   const nav = [
     ["panels", "Panels", "index.html#panels"],
     ["materials", "Finishes", "collection.html"],
-    ["projects", "Projects", "#"],
-    ["visit", "Experience Center", "#"],
+    ["projects", "Projects", "index.html#projects"],
+    ["visit", "Experience Center", "index.html#visit"],
   ];
   const cur = (k) => (k === page ? ' aria-current="page"' : "");
   // Logo artwork: traced from the supplied logo, recoloured to the locked palette.
@@ -51,9 +74,9 @@
         ${minimal ? `<div class="header-actions"><a class="link" href="collection.html">Keep browsing</a></div>` : `
         <nav class="nav" aria-label="Primary">${nav.map(([k, l, h]) => `<a href="${h}"${cur(k)}>${l}</a>`).join("")}</nav>
         <div class="header-actions">
-          <button class="icon-btn search-btn" type="button" aria-label="Search materials">${icon("search")}</button>
-          <a class="icon-btn" href="samples.html" aria-label="Sample request, ${count} surfaces">${icon("box")}${count ? `<span class="badge num" aria-hidden="true">${count}</span>` : ""}</a>
-          <a class="btn btn--sm" href="#">Request a quote</a>
+          <a class="icon-btn search-btn" href="collection.html#search" aria-label="Search finishes">${icon("search")}</a>
+          <a class="icon-btn sample-link" href="samples.html" aria-label="Sample request, ${count} finishes">${icon("box")}<span class="badge num" aria-hidden="true"${count ? "" : " hidden"}>${count}</span></a>
+          <a class="btn btn--sm" href="quote.html">Request a quote</a>
           <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">${icon("menu")}</button>
         </div>`}
       </div>
@@ -63,12 +86,12 @@
       <ul>
         <li><a href="index.html#panels">Panels <small>ImpactShield · Fluted</small></a></li>
         <li><a href="collection.html">Finishes <small>In stock</small></a></li>
-        <li><a href="#">Projects ${icon("arrow")}</a></li>
-        <li><a href="#">Experience Center ${icon("arrow")}</a></li>
-                <li><a href="samples.html">Sample request <small class="num">${count}</small></a></li>
+        <li><a href="index.html#projects">Projects ${icon("arrow")}</a></li>
+        <li><a href="index.html#visit">Experience Center ${icon("arrow")}</a></li>
+        <li><a href="samples.html">Sample request <small class="num sample-count">${count}</small></a></li>
       </ul>
       <div class="mnav-foot">
-        <a class="btn btn--light btn--block" href="#">Request a quote</a>
+        <a class="btn btn--light btn--block" href="quote.html">Request a quote</a>
         <a class="btn btn--ghost btn--block" style="--fg:var(--white);--bd:var(--on-dark-2)" href="collection.html">Request samples</a>
         <p class="meta">+91 99160 89900 · info@texturr.com</p>
       </div>
@@ -81,19 +104,15 @@
           <div>
             <a class="footer-logo" href="index.html" aria-label="Texturr, Surface Evolution — home">${logo(true, true)}</a>
             <p class="lede" style="margin-top:20px;max-width:24em">ImpactShield and Fluted wall panels for residential, commercial and hospitality projects.</p>
-            <form class="news" onsubmit="return false">
-              <label class="sr-only" for="nl">Work email</label>
-              <input id="nl" type="email" placeholder="New collections and stock updates — work email" autocomplete="email">
-              <button type="submit" aria-label="Subscribe">${icon("arrow")}</button>
-            </form>
+            <a class="btn btn--light" href="quote.html" style="margin-top:28px">Request a quote ${icon("arrow")}</a>
           </div>
-          <div><h2 class="foot-h">Products</h2><ul><li><a href="index.html#panels">ImpactShield Panel</a></li><li><a href="index.html#panels">Fluted Panel</a></li><li><a href="collection.html">In-stock finishes</a></li><li><a href="#">Aluminium profiles</a></li><li><a href="#">Catalogues</a></li></ul></div>
-          <div><h2 class="foot-h">Series</h2><ul><li><a href="collection.html">Metal</a></li><li><a href="collection.html">Wood</a></li><li><a href="collection.html">Solid</a></li><li><a href="collection.html">Stone</a></li><li><a href="collection.html">Cloth</a></li></ul></div>
+          <div><h2 class="foot-h">Products</h2><ul><li><a href="index.html#panels">ImpactShield Panel</a></li><li><a href="index.html#panels">Fluted Panel</a></li><li><a href="collection.html">In-stock finishes</a></li><li><a href="assets/downloads/texturr-aluminium-profiles.pdf">Aluminium profiles (PDF)</a></li><li><a href="assets/downloads/texturr-product-catalogue.pdf">Product catalogue (PDF)</a></li></ul></div>
+          <div><h2 class="foot-h">Series</h2><ul><li><a href="collection.html?series=metal">Metal</a></li><li><a href="collection.html?series=wood">Wood</a></li><li><a href="collection.html?series=solid">Solid</a></li><li><a href="collection.html?series=stone">Stone</a></li><li><a href="collection.html?series=cloth">Cloth</a></li></ul></div>
           <div><h2 class="foot-h">Experience Center</h2><address class="foot-addr">Galaxy Surfaces<br># 168, 3rd Floor, Arasoji Rao Building<br>R V Road, Near Minerva Circle<br>Bengaluru 560004</address><ul><li><a href="tel:+919916089900">+91 99160 89900</a></li><li><a href="mailto:info@texturr.com">info@texturr.com</a></li></ul></div>
         </div>
         <div class="footer-base">
           <span>© 2026 Texturr India · Galaxy Surfaces</span>
-          <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></nav>
+          <nav aria-label="Footer"><a href="quote.html?topic=visit">Book a visit</a><a href="mailto:info@texturr.com">info@texturr.com</a></nav>
         </div>
       </div>
     </footer>`;
@@ -103,7 +122,7 @@
     <footer class="footer footer--slim dark">
       <div class="wrap footer-base">
         <span>© 2026 Texturr India · +91 99160 89900</span>
-        <nav aria-label="Legal"><a href="#">Delivery</a><a href="#">Privacy</a><a href="#">Accessibility</a></nav>
+        <nav aria-label="Footer"><a href="mailto:info@texturr.com">info@texturr.com</a></nav>
       </div>
     </footer>`;
   document.querySelectorAll("[data-include=footer]").forEach((el) => (el.outerHTML = minimal ? slimFooter : footer));
@@ -121,9 +140,11 @@
   openBtn && openBtn.addEventListener("click", () => setMenu(true));
   closeBtn && closeBtn.addEventListener("click", () => setMenu(false));
   document.addEventListener("keydown", (e) => e.key === "Escape" && html.classList.contains("menu-open") && setMenu(false));
-  if (new URLSearchParams(location.search).get("menu") === "open") html.classList.add("menu-open");
+  if (params.get("menu") === "open") html.classList.add("menu-open");
+  // Close the menu when one of its in-page links is followed
+  document.querySelectorAll(".mnav a").forEach((a) => a.addEventListener("click", () => html.classList.remove("menu-open")));
 
-  // Toggle buttons (sample selection, segmented controls) stay operable in the mockups
+  // Segmented controls
   document.addEventListener("click", (e) => {
     const seg = e.target.closest(".seg button");
     if (seg) seg.parentElement.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === seg)));

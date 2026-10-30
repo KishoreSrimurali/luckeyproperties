@@ -11,20 +11,22 @@ const TYPES = { ".html": "text/html", ".css": "text/css", ".js": "text/javascrip
 
 const SHOTS = [
   // [file, page, width, full page?, scale]
-  ["desktop-00-design-system", "design-system.html", 1440, true, 1],
-  ["desktop-01-home", "index.html", 1440, true, 1],
-  ["desktop-01-home-fold", "index.html", 1440, false, 2],
-  ["desktop-02-collection", "collection.html", 1440, true, 1],
-  ["desktop-03-product", "product.html", 1440, true, 1],
-  ["desktop-04-sample-box", "samples.html", 1440, true, 1],
-  ["mobile-01-home", "index.html", 390, true, 2],
-  ["mobile-01-home-fold", "index.html", 390, false, 3],
-  ["mobile-02-collection", "collection.html", 390, true, 2],
-  ["mobile-02-collection-fold", "collection.html", 390, false, 3],
-  ["mobile-03-product", "product.html", 390, true, 2],
-  ["mobile-03-product-fold", "product.html", 390, false, 3],
-  ["mobile-04-sample-box", "samples.html", 390, true, 2],
-  ["mobile-05-menu", "index.html?menu=open", 390, false, 3],
+  ["desktop-00-design-system", "design-system.html?demo=1", 1440, true, 1],
+  ["desktop-01-home", "index.html?demo=1", 1440, true, 1],
+  ["desktop-01-home-fold", "index.html?demo=1", 1440, false, 2],
+  ["desktop-02-collection", "collection.html?demo=1", 1440, true, 1],
+  ["desktop-03-product", "product.html?demo=1", 1440, true, 1],
+  ["desktop-04-sample-box", "samples.html?demo=1", 1440, true, 1],
+  ["desktop-05-quote", "quote.html?demo=1", 1440, true, 1],
+  ["mobile-01-home", "index.html?demo=1", 390, true, 2],
+  ["mobile-01-home-fold", "index.html?demo=1", 390, false, 3],
+  ["mobile-02-collection", "collection.html?demo=1", 390, true, 2],
+  ["mobile-02-collection-fold", "collection.html?demo=1", 390, false, 3],
+  ["mobile-03-product", "product.html?demo=1", 390, true, 2],
+  ["mobile-03-product-fold", "product.html?demo=1", 390, false, 3],
+  ["mobile-04-sample-box", "samples.html?demo=1", 390, true, 2],
+  ["mobile-06-quote", "quote.html?demo=1", 390, true, 2],
+  ["mobile-05-menu", "index.html?menu=open&demo=1", 390, false, 3],
 ];
 
 const server = http.createServer((req, res) => {

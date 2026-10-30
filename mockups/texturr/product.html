@@ -8,25 +8,25 @@
   <link rel="stylesheet" href="assets/texturr.css">
   <link rel="stylesheet" href="assets/pages.css">
 </head>
-<body data-page="materials" data-samples="2" data-inbox="t-stn-8027,t-nat-7004">
+<body data-page="materials" data-inbox="t-stn-8027,t-nat-7004">
   <div data-include="header"></div>
 
   <main id="main">
     <div class="wrap">
-      <nav class="crumbs pdp-crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="collection.html">In-stock finishes</a><span aria-hidden="true">/</span><span aria-current="page">T-STN 8027</span></nav>
+      <nav class="crumbs pdp-crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="collection.html">In-stock finishes</a><span aria-hidden="true">/</span><span aria-current="page" data-bind="code">T-STN 8027</span></nav>
 
-      <div class="pdp">
-        <div class="gallery" role="region" aria-label="Images of T-STN 8027" tabindex="0">
+      <div class="pdp" data-decor-page>
+        <div class="gallery" role="region" aria-label="Decor images" tabindex="0">
           <figure class="g-main">
-            <img src="assets/img/cat-stone-reception-1050.webp" srcset="assets/img/cat-stone-reception-700.webp 700w, assets/img/cat-stone-reception-1050.webp 1050w"
-                 sizes="(max-width: 900px) 86vw, 56vw" width="889" height="1000" fetchpriority="high" decoding="async"
+            <img data-bind="room" src="assets/img/cat-stone-reception-1050.webp"
+                 width="889" height="1000" fetchpriority="high" decoding="async"
                  alt="A reception wall clad in white marble-look Stone Series panels behind a grey stone counter">
-            <figcaption>Stone Series panels, reception wall</figcaption>
+            <figcaption data-bind="room-cap">Stone Series panels</figcaption>
           </figure>
           <figure class="g-half">
-            <img src="assets/img/sw-t-stn-8027-500.webp" width="500" height="700" loading="lazy" decoding="async"
-                 alt="T-STN 8027 decor: a white ground with soft grey and charcoal marble veining">
-            <figcaption>T-STN 8027 decor</figcaption>
+            <img data-bind="swatch" src="assets/img/sw-t-stn-8027-500.webp" width="500" height="700" decoding="async"
+                 alt="T-STN 8027 decor: white marble, grey veining">
+            <figcaption data-bind="swatch-cap">T-STN 8027 decor</figcaption>
           </figure>
           <figure class="g-half g-diagram">
             <img src="assets/img/cat-impactshield-layers-600.webp" width="600" height="675" loading="lazy" decoding="async"
@@ -36,9 +36,9 @@
         </div>
 
         <section class="buy" aria-labelledby="pname">
-          <p class="eyebrow">Stone Series · In stock</p>
-          <h1 id="pname">T-STN 8027</h1>
-          <p class="lede">A white marble look with soft grey and charcoal veining. It gives the depth of natural stone with the light weight, durability and lower cost of an engineered panel.</p>
+          <p class="eyebrow"><span data-bind="series">Stone Series</span> · In stock</p>
+          <h1 id="pname" data-bind="code">T-STN 8027</h1>
+          <p class="lede" data-bind="lede">White marble, grey veining. The look of marble, granite and slate with the lightweight, cost-effective benefits of advanced panel technology.</p>
           <dl class="facts">
             <div><dt>Panel size</dt><dd class="num">1100 × 2900 mm</dd></div>
             <div><dt>Thickness</dt><dd class="num">5 / 8 mm</dd></div>
@@ -46,14 +46,8 @@
           </dl>
 
           <div class="opt">
-            <div class="opt-head"><span>Stone Series decors</span><b>T-STN 8027</b></div>
-            <div class="swatches" role="group" aria-label="Stone Series decors">
-              <button class="sw" data-swatch="t-stn-8027" type="button" aria-pressed="true" aria-label="T-STN 8027"></button>
-              <button class="sw" data-swatch="t-stn-8070" type="button" aria-pressed="false" aria-label="T-STN 8070"></button>
-              <button class="sw" data-swatch="t-stn-8001" type="button" aria-pressed="false" aria-label="T-STN 8001"></button>
-              <button class="sw" data-swatch="t-stn-4018" type="button" aria-pressed="false" aria-label="T-STN 4018"></button>
-              <button class="sw" data-swatch="t-stn-4039" type="button" aria-pressed="false" aria-label="T-STN 4039"></button>
-            </div>
+            <div class="opt-head"><span data-bind="decors-label">Stone Series decors</span><b data-bind="code">T-STN 8027</b></div>
+            <div class="swatches" role="group" aria-label="Decors in this series" data-bind="decors"></div>
           </div>
           <div class="opt">
             <div class="opt-head"><span id="sys-l">Panel system</span><span class="meta">Same decor, two formats</span></div>
@@ -65,20 +59,20 @@
           <div class="opt">
             <div class="opt-head"><span>Downloads</span><span class="meta">Texturr catalogues</span></div>
             <ul class="downloads">
-              <li><a href="#"><span>Product catalogue</span><small>PDF · 8.7 MB</small></a></li>
-              <li><a href="#"><span>In-stock catalogue</span><small>PDF · 3.2 MB</small></a></li>
-              <li><a href="#"><span>Fluted panel catalogue</span><small>PDF · 2.7 MB</small></a></li>
-              <li><a href="#"><span>Aluminium profiles</span><small>PDF · 1.3 MB</small></a></li>
+              <li><a href="assets/downloads/texturr-product-catalogue.pdf"><span>Product catalogue</span><small>PDF · 8.7 MB</small></a></li>
+              <li><a href="assets/downloads/texturr-in-stock-catalogue.pdf"><span>In-stock catalogue</span><small>PDF · 3.2 MB</small></a></li>
+              <li><a href="assets/downloads/texturr-fluted-panel-catalogue.pdf"><span>Fluted panel catalogue</span><small>PDF · 2.7 MB</small></a></li>
+              <li><a href="assets/downloads/texturr-aluminium-profiles.pdf"><span>Aluminium profiles</span><small>PDF · 1.3 MB</small></a></li>
             </ul>
           </div>
 
           <div class="buy-cta">
-            <a class="btn btn--block" href="#">Request a quote <i data-icon="arrow"></i></a>
-            <button class="btn btn--ghost btn--block" type="button" aria-pressed="true"><i data-icon="check"></i> In your sample request</button>
+            <a class="btn btn--block" href="quote.html">Request a quote <i data-icon="arrow"></i></a>
+            <div data-sample-slot="btn btn--ghost btn--block"></div>
           </div>
           <div class="reassure">
-            <div><i data-icon="chat"></i> <span>Our team will recommend the right panel and decor for your project. <a class="u" href="#">Talk to us</a></span></div>
-            <div><i data-icon="box"></i> <span>See it in person at our <a class="u" href="index.html">Experience Center in Bengaluru</a></span></div>
+            <div><i data-icon="chat"></i> <span>Our team will recommend the right panel and decor for your project. <a class="u" href="quote.html">Talk to us</a></span></div>
+            <div><i data-icon="box"></i> <span>See it in person at our <a class="u" href="index.html#visit">Experience Center in Bengaluru</a></span></div>
           </div>
         </section>
       </div>
@@ -97,7 +91,7 @@
         <div>
           <h2 id="spec" class="h3">Specification</h2>
           <p class="meta" style="margin-top:12px">Texturr ImpactShield Panel, from the product catalogue.</p>
-          <a class="link" href="#" style="margin-top:16px">Product catalogue, PDF 8.7 MB <i data-icon="arrow"></i></a>
+          <a class="link" href="assets/downloads/texturr-product-catalogue.pdf" style="margin-top:16px">Product catalogue, PDF 8.7 MB <i data-icon="arrow"></i></a>
         </div>
         <dl>
           <dt>Size</dt><dd class="num">Width 1100 mm, height 2900 mm</dd>
@@ -115,13 +109,13 @@
           <div><p class="eyebrow">Pairs well with</p><h2 id="pairs" class="h2">Complete the <em>room.</em></h2></div>
           <a class="link" href="collection.html">All in-stock finishes <i data-icon="arrow"></i></a>
         </div>
-        <div class="grid4" data-cards="t-nat-7004,t-mat-1701,t-stn-8070,t-sol-2016"></div>
+        <div class="grid4" data-bind="pairs"></div>
       </section>
     </div>
 
     <div class="mobile-buy">
-      <span class="mb-swatch" data-swatch="t-stn-8027" aria-hidden="true"></span>
-      <a class="btn" href="#">Request a quote</a>
+      <span class="mb-swatch" data-bind="mb-swatch" data-swatch="t-stn-8027" aria-hidden="true"></span>
+      <a class="btn" href="quote.html">Request a quote</a>
       <a class="icon-btn" href="samples.html" aria-label="Review sample request"><i data-icon="box"></i></a>
     </div>
   </main>
@@ -129,6 +123,7 @@
   <div data-include="footer"></div>
   <script src="assets/partials.js"></script>
   <script src="assets/catalog.js"></script>
+  <script src="assets/app.js"></script>
   <script>
     // Sticky mobile CTA only appears once the inline CTA has scrolled out of view
     const bar = document.querySelector(".mobile-buy");
