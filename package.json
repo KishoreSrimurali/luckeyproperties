@@ -2,7 +2,7 @@
   "name": "luckey-properties",
   "version": "1.0.0",
   "private": true,
-  "description": "Luckey Properties — Dubai real estate website and lead-generation platform",
+  "description": "Luckey Properties \u2014 Dubai real estate website and lead-generation platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,7 +11,7 @@
     "test": "node --test --experimental-strip-types tests/*.test.ts"
   },
   "engines": {
-    "node": ">=20.9"
+    "node": "22.x"
   },
   "dependencies": {
     "next": "^16.4.3",

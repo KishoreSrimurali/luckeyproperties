@@ -52,7 +52,7 @@ export const developments: Development[] = [
       "A mixed-use development combining contemporary residences, premium offices and retail spaces with distinctive architecture.",
     verified: pending,
     imageCount: 4,
-    imageAlt: "Binghatti Spectre at Al Jaddaf Waterfront, Dubai",
+    imageAlt: "Developer rendering of the Binghatti Spectre towers at sunset, with the Downtown Dubai skyline behind",
     geoQuery: "Binghatti Spectre, Al Jaddaf, Dubai",
   },
   {
@@ -71,7 +71,8 @@ export const developments: Development[] = [
       "Mediterranean-inspired waterfront apartments with lagoon views, elegant architecture and resort-style living.",
     verified: pending,
     imageCount: 4,
-    imageAlt: "DAMAC Lagoon Views apartments overlooking the lagoon, DAMAC Lagoons, Dubai",
+    // Image assignment provisional — confirm this rendering belongs to Lagoon Views 13B.
+    imageAlt: "Rendering of apartment buildings with curved balconies above landscaped lagoon pools, DAMAC Lagoons",
     geoQuery: "DAMAC Lagoons, Dubai",
   },
   {
@@ -90,7 +91,7 @@ export const developments: Development[] = [
       "Contemporary residences combining Mediterranean-inspired living with community amenities, leisure and retail experiences.",
     verified: pending,
     imageCount: 4,
-    imageAlt: "Valencia residences in the DAMAC Lagoons district, Dubailand",
+    imageAlt: "Rendering of Valencia residences around a resort-style pool at dusk, DAMAC Lagoons",
     geoQuery: "DAMAC Lagoons, Dubailand, Dubai",
   },
   {
@@ -109,7 +110,7 @@ export const developments: Development[] = [
       "A commercial destination offering office spaces alongside retail, dining and lifestyle amenities.",
     verified: pending,
     imageCount: 4,
-    imageAlt: "Piazza Roma commercial district in DAMAC Lagoons, Dubailand",
+    imageAlt: "Rendering of a DAMAC office building at sunset, Piazza Roma commercial district, DAMAC Lagoons",
     geoQuery: "DAMAC Lagoons, Dubailand, Dubai",
   },
   {
@@ -128,7 +129,7 @@ export const developments: Development[] = [
       "Spacious townhouses designed for contemporary family living within Emaar's The Valley community.",
     verified: pending,
     imageCount: 4,
-    imageAlt: "ALVA townhouses in Emaar's The Valley community, Dubai",
+    imageAlt: "Rendering of the living and dining room in an ALVA townhouse, The Valley by Emaar",
     geoQuery: "The Valley by Emaar, Dubai",
   },
 ];
